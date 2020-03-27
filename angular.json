@@ -145,6 +145,127 @@
           }
         }
       }
+    },
+    "cakes": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/cakes",
+      "sourceRoot": "projects/cakes/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/cakes",
+            "index": "projects/cakes/src/index.html",
+            "main": "projects/cakes/src/main.ts",
+            "polyfills": "projects/cakes/src/polyfills.ts",
+            "tsConfig": "projects/cakes/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/cakes/src/favicon.ico",
+              "projects/cakes/src/assets"
+            ],
+            "styles": [
+              "projects/cakes/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/cakes/src/environments/environment.ts",
+                  "with": "projects/cakes/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cakes:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cakes:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cakes:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cakes/src/test.ts",
+            "polyfills": "projects/cakes/src/polyfills.ts",
+            "tsConfig": "projects/cakes/tsconfig.spec.json",
+            "karmaConfig": "projects/cakes/karma.conf.js",
+            "assets": [
+              "projects/cakes/src/favicon.ico",
+              "projects/cakes/src/assets"
+            ],
+            "styles": [
+              "projects/cakes/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cakes/tsconfig.app.json",
+              "projects/cakes/tsconfig.spec.json",
+              "projects/cakes/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/cakes/e2e/protractor.conf.js",
+            "devServerTarget": "cakes:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cakes:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "Web-Paddle"
 }
