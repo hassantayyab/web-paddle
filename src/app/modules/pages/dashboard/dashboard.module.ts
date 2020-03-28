@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
+import { SidenavComponent } from '../../components/layout/sidenav/sidenav.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, SidenavComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule
