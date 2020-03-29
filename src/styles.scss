@@ -18,3 +18,72 @@ body {
   height: 100%;
   font-family: "Lato", sans-serif;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+p {
+  font-weight: 400;
+}
+
+small {
+  font-weight: 300;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  outline: none;
+}
+
+.default-card-shadow {
+  @include default-shadow();
+  transition: var(--transition);
+  &:hover {
+    @include hover-shadow();
+  }
+}
+
+.shadow-inner {
+  @include default-shadow-inner();
+}
+
+.shadow-top {
+  @include top-shadow();
+}
+
+/* Scrollbar Styling */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-dark-grey-600);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-grey-400);
+  border-radius: var(--border-radius);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dark-grey);
+  border-radius: var(--border-radius);
+}

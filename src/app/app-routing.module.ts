@@ -12,16 +12,11 @@ const routes: Routes = [
     canLoad: [NoAuthGuard]
   },
   {
-    path: 'dashboard',
-    loadChildren: () => import('./modules/pages/dashboard/dashboard.module').then(m => m.DashboardModule),
+    path: 'home',
+    loadChildren: () => import('./modules/pages/home/home.module').then(m => m.HomeModule),
     canLoad: [AuthGuard]
   },
-  {
-    path: 'settings',
-    loadChildren: () => import('./modules/pages/settings/settings.module').then(m => m.SettingsModule),
-    canLoad: [AuthGuard]
-  },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
   {
     path: '**',
     loadChildren: () => import('./modules/pages/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
@@ -29,7 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

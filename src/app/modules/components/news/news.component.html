@@ -1,0 +1,19 @@
+<div id="news" class="default-card-shadow">
+  <div>
+    <div class="media">
+      <img [src]="newsData.thumbnail" alt="">
+    </div>
+
+    <div class="content">
+      <div class="news">
+        <h5>{{newsData.title}}</h5>
+        <p>{{newsData.description}}</p>
+      </div>
+
+      <div class="source">
+        <img [src]="newsData.source.logo" alt="">
+        <small>{{newsData.source.name}}</small>
+      </div>
+    </div>
+  </div>
+</div>

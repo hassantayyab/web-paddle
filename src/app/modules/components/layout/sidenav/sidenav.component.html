@@ -3,21 +3,21 @@
     <span class="material-icons">rowing</span>
   </div>
   <div>
-    <section class="active">
+    <section [routerLink]="['/home/dashboard']" routerLinkActive="active">
       <span class="material-icons">dashboard</span>
     </section>
-    <section>
+    <section [routerLink]="['/home/bookmarks']" routerLinkActive="active">
       <span class="material-icons">bookmark</span>
     </section>
-    <section>
+    <section [routerLink]="['/home/music']" routerLinkActive="active">
       <span class="material-icons">library_music</span>
     </section>
-    <section>
+    <section [routerLink]="['/home/radio']" routerLinkActive="active">
       <span class="material-icons">radio</span>
     </section>
   </div>
   <div>
-    <section>
+    <section [routerLink]="['/home/settings']" routerLinkActive="active">
       <span class="material-icons">settings</span>
     </section>
   </div>

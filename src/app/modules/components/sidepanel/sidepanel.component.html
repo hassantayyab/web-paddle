@@ -1,0 +1,12 @@
+<aside id="sidepanel">
+  <ul>
+    <li>
+      <app-weather></app-weather>
+    </li>
+  </ul>
+  <ul>
+    <li *ngFor="let news of newsSource">
+      <app-news [newsData]="news"></app-news>
+    </li>
+  </ul>
+</aside>
