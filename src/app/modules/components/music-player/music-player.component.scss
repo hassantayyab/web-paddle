@@ -1,5 +1,6 @@
 #music-player {
-  background: var(--color-dark-grey-600);
+  $color-dark-grey: var(--color-dark-grey-600); // #0d0d0d
+  background: rgba(#0d0d0d, 0.9);
   color: var(--color-light);
   opacity: 0.9;
   z-index: 1;

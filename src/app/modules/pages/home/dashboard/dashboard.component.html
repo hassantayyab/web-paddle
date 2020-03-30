@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<div id="dashboard">
+  <div *ngFor="let dashboard of dahboardData">
+    <section [class]="dashboard.id">
+      <h3>{{dashboard.title}}</h3>
+      <div class="items-sect">
+        <div class="item default-card-shadow" *ngFor="let item of dashboard.items">
+          <img [src]="item.thumbnail" alt="">
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

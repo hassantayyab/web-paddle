@@ -3,22 +3,13 @@
     <span class="material-icons">rowing</span>
   </div>
   <div>
-    <section [routerLink]="['/home/dashboard']" routerLinkActive="active">
-      <span class="material-icons">dashboard</span>
-    </section>
-    <section [routerLink]="['/home/bookmarks']" routerLinkActive="active">
-      <span class="material-icons">bookmark</span>
-    </section>
-    <section [routerLink]="['/home/music']" routerLinkActive="active">
-      <span class="material-icons">library_music</span>
-    </section>
-    <section [routerLink]="['/home/radio']" routerLinkActive="active">
-      <span class="material-icons">radio</span>
+    <section *ngFor="let item of navItems.slice(0, -1)" [routerLink]="[item.url]" routerLinkActive="active">
+      <span class="material-icons" [matTooltip]="item.tooltip" [matTooltipShowDelay]="tooltipDelay">{{item.icon}}</span>
     </section>
   </div>
   <div>
-    <section [routerLink]="['/home/settings']" routerLinkActive="active">
-      <span class="material-icons">settings</span>
+    <section *ngFor="let item of navItems.slice(-1)" [routerLink]="[item.url]" routerLinkActive="active">
+      <span class="material-icons" [matTooltip]="item.tooltip" [matTooltipShowDelay]="tooltipDelay">{{item.icon}}</span>
     </section>
   </div>
 </aside>

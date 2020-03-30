@@ -7,16 +7,20 @@
     flex: 1;
     color: var(--color-light);
     background: var(--color-dark-grey);
+    max-width: 100%;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     #music-player {
-      position: absolute;
+      position: sticky;
       bottom: 0;
       left: 0;
       width: 100%;
     }
   }
 
-  main {
-    padding: var(--main-padding-y) var(--main-padding-x);
-  }
+  // main {
+  //   padding: var(--main-padding-y) var(--main-padding-x);
+  // }
 }

@@ -8,12 +8,15 @@ import { SidepanelComponent } from '../../components/sidepanel/sidepanel.compone
 import { NewsComponent } from '../../components/news/news.component';
 import { WeatherComponent } from '../../components/weather/weather.component';
 import { MusicPlayerComponent } from '../../components/music-player/music-player.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
   declarations: [HomeComponent, SidenavComponent, SidepanelComponent, NewsComponent, WeatherComponent, MusicPlayerComponent],
   imports: [
     CommonModule,
+    MatTooltipModule,
     HomeRoutingModule
   ]
 })
