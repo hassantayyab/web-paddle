@@ -8,12 +8,20 @@ import { SidepanelComponent } from '../../components/sidepanel/sidepanel.compone
 import { NewsComponent } from '../../components/news/news.component';
 import { WeatherComponent } from '../../components/weather/weather.component';
 import { MusicPlayerComponent } from '../../components/music-player/music-player.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HeaderComponent } from '../../components/layout/header/header.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, SidenavComponent, SidepanelComponent, NewsComponent, WeatherComponent, MusicPlayerComponent],
+  declarations: [
+    HomeComponent,
+    SidenavComponent,
+    SidepanelComponent,
+    NewsComponent,
+    WeatherComponent,
+    MusicPlayerComponent,
+    HeaderComponent
+  ],
   imports: [
     CommonModule,
     MatTooltipModule,

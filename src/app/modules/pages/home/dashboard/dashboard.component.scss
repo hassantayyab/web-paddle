@@ -4,7 +4,11 @@
   padding: var(--main-padding-y) var(--main-padding-x);
 
   section {
-    margin-bottom: 4rem;
+    margin-top: 4rem;
+
+    &:last-child {
+      margin-bottom: 5.5rem;
+    }
 
     h3 {
       margin-bottom: 1.5rem;
@@ -20,6 +24,7 @@
       .item {
         width: 11rem;
         height: 8rem;
+        cursor: pointer;
         border-radius: var(--border-radius);
 
         &:first-child {

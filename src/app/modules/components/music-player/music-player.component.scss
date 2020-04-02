@@ -1,12 +1,10 @@
 #music-player {
   $color-dark-grey: var(--color-dark-grey-600); // #0d0d0d
-  background: rgba(#0d0d0d, 0.9);
+  background: rgba(#0d0d0d, 0.95);
   color: var(--color-light);
-  opacity: 0.9;
-  z-index: 1;
   display: flex;
   justify-content: space-between;
-  // align-items: center;
+  z-index: 1;
 
   button {
     line-height: 0;

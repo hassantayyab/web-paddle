@@ -46,6 +46,11 @@ ul {
 
 a {
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+button {
+  transition: all 0.2s ease-in-out;
 }
 
 section {
@@ -53,15 +58,15 @@ section {
 }
 
 .default-card-shadow {
-  @include default-shadow();
+  @include box-shadow();
   transition: var(--transition);
   &:hover {
-    @include hover-shadow();
+    @include box-shadow-hover();
   }
 }
 
 .shadow-inner {
-  @include default-shadow-inner();
+  @include box-shadow-inset();
 }
 
 .shadow-top {

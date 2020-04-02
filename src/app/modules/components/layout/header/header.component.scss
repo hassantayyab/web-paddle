@@ -1,0 +1,11 @@
+#header {
+  color: var(--color-light);
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  padding: var(--main-padding-y) var(--main-padding-x);
+
+  mat-form-field {
+    color: var(--color-light);
+  }
+}
