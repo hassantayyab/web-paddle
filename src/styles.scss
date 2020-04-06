@@ -65,6 +65,13 @@ section {
   }
 }
 
+.hover-shadow {
+  transition: var(--transition);
+  &:hover {
+    @include box-shadow();
+  }
+}
+
 .shadow-inner {
   @include box-shadow-inset();
 }

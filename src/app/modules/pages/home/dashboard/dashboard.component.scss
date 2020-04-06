@@ -6,8 +6,8 @@
   section {
     margin-top: 4rem;
 
-    &:last-child {
-      margin-bottom: 5.5rem;
+    &.bookmarks {
+      margin-top: 7rem;
     }
 
     h3 {
@@ -28,12 +28,16 @@
         border-radius: var(--border-radius);
 
         &:first-child {
-          margin-right: 1.7rem;
+          margin-right: 0.95rem;
         }
 
         &:not(:first-child) {
           margin-left: 0.85rem;
           margin-right: 0.85rem;
+        }
+
+        &:last-child {
+          margin-bottom: 5.5rem;
         }
 
         img {
