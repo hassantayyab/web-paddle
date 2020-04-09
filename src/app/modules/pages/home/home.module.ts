@@ -8,8 +8,10 @@ import { SidepanelComponent } from '../../components/sidepanel/sidepanel.compone
 import { NewsComponent } from '../../components/news/news.component';
 import { WeatherComponent } from '../../components/weather/weather.component';
 import { MusicPlayerComponent } from '../../components/music-player/music-player.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { HeaderComponent } from '../../components/layout/header/header.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MaterialModule } from 'src/app/shared/modules/material/material.module';
+import { MatRippleModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { HeaderComponent } from '../../components/layout/header/header.component
   imports: [
     CommonModule,
     MatTooltipModule,
+    // MaterialModule,
     HomeRoutingModule
   ]
 })

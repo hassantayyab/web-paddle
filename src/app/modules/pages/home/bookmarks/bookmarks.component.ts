@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-bookmarks',
@@ -6,10 +6,174 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bookmarks.component.scss']
 })
 export class BookmarksComponent implements OnInit {
+  buttonState = 'hide'
 
-  constructor() { }
+  constructor(public el: ElementRef) { }
 
   ngOnInit(): void {
+  }
+
+  bookmarks =
+    {
+      id: 'bookmarks',
+      title: 'Bookmarks',
+      items: [
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+        {
+          title: 'YouTube',
+          description: 'Go to youtube channel',
+          thumbnail: '/assets/images/YouTube-Logo.jpg',
+          url: 'https://www.example.com'
+        },
+      ]
+    }
+
+  @HostListener('scroll', ['$event'])
+  onWindowScroll($event) {
+    console.log("scrolling...", event);
   }
 
 }
