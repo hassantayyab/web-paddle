@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import {
-  Router, NavigationStart, NavigationCancel, NavigationEnd
+  Router, NavigationStart, NavigationCancel, NavigationEnd, RouterOutlet
 } from '@angular/router';
 
 @Component({
@@ -17,6 +17,10 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initNavigationLoader();
+  }
+
+  getAnimationData(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
   initNavigationLoader(): void {

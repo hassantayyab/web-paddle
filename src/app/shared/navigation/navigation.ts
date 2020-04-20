@@ -12,7 +12,7 @@ export const navigation: PaddleNavigation[] = [
     id: 'bookmarks',
     title: 'Bookmarks',
     tooltip: 'Bookmarks',
-    icon: 'bookmark',
+    icon: 'bookmarks',
     url: '/home/bookmarks'
   },
   {

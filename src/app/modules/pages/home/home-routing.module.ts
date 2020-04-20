@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
-      { path: 'bookmarks', loadChildren: () => import('./bookmarks/bookmarks.module').then(m => m.BookmarksModule) },
+      { path: 'bookmarks', loadChildren: () => import('./bookmarks/bookmarks.module').then(m => m.BookmarksModule), data: { animation: 'bookmarks' } },
       { path: 'music', loadChildren: () => import('./music/music.module').then(m => m.MusicModule) },
       { path: 'radio', loadChildren: () => import('./radio/radio.module').then(m => m.RadioModule) },
       { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
