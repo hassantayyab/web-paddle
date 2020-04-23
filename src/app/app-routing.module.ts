@@ -6,6 +6,7 @@ import { NoAuthGuard } from './shared/guards/no-auth.guard';
 
 
 const routes: Routes = [
+  // { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
   {
     path: 'authentication',
     loadChildren: () => import('./modules/pages/authentication/authentication.module').then(m => m.AuthenticationModule),
@@ -16,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/pages/home/home.module').then(m => m.HomeModule),
     canLoad: [AuthGuard]
   },
-  { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
+  { path: '', loadChildren: () => import('./modules/pages/landing/landing.module').then(m => m.LandingModule) },
   {
     path: '**',
     loadChildren: () => import('./modules/pages/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)

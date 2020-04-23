@@ -1,0 +1,169 @@
+@mixin box-shadow-hover {
+  -webkit-box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.2),
+    0 2px 8px 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.2),
+    0 2px 8px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.2), 0 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+@mixin ripple-effect {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#landing {
+  background: var(--color-dark-grey);
+  color: var(--color-light);
+  min-height: var(--min-height);
+  padding: var(--main-padding-y) var(--main-padding-x);
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      &:first-child {
+        font-size: 1.075rem;
+
+        li {
+          margin-right: 2rem;
+
+          &:first-child {
+            margin-right: 3.5rem;
+            img {
+              width: 11rem;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        li.auth {
+          a.login {
+            display: inline-block;
+            text-align: center;
+            margin-left: 2rem;
+            border: 2px solid var(--color-light-600);
+            border-radius: 5rem;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            width: 6rem;
+
+            @include ripple-effect();
+
+            &:hover {
+              border-color: var(--color-light);
+              transition: all 0.2s ease-in-out;
+            }
+          }
+
+          a.signup {
+            display: inline-block;
+            text-align: center;
+            background: var(--color-primary);
+            border-radius: 5rem;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            width: 6rem;
+            color: var(--color-light);
+
+            @include ripple-effect();
+            @include box-shadow-hover();
+          }
+        }
+      }
+
+      li {
+        margin-right: 2rem;
+
+        a {
+          color: var(--color-light-600);
+          text-decoration: none;
+          cursor: pointer;
+
+          fa-icon {
+            color: var(--color-light-600);
+            font-size: 1.4rem;
+
+            &:hover {
+              color: var(--color-light);
+              transition: all 0.2s ease-in-out;
+            }
+          }
+
+          &:hover {
+            color: var(--color-light);
+            transition: all 0.2s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    height: 100vh;
+
+    > div {
+      text-align: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 11rem;
+      bottom: 0;
+      margin: auto;
+
+      div {
+        margin-bottom: -1rem;
+
+        h1 {
+          font-size: 2.3rem;
+          font-weight: 800;
+          color: var(--color-light);
+          margin-bottom: 0.8rem;
+        }
+
+        p {
+          line-height: 1.5rem;
+          letter-spacing: 0.5px;
+          color: var(--color-light-600);
+        }
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+
+        button {
+          height: 2.7rem;
+          width: 14rem;
+          line-height: 1px;
+        }
+
+        button:first-child {
+          background: #eee;
+          color: #003041;
+          margin-right: 2rem;
+        }
+
+        button:first-child {
+          margin-left: 2rem;
+        }
+      }
+    }
+  }
+}
