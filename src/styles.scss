@@ -5,6 +5,7 @@
 
 /* SASS Styling imports */
 @import "./styles/variables";
+@import "./styles/responsive";
 
 /* You can add global styles to this file, and also import other style files */
 * {
@@ -102,4 +103,33 @@ section {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-dark-grey);
   border-radius: var(--border-radius);
+}
+
+/* Forms & Inputs */
+.form-group {
+  display: block;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 1rem 1rem;
+    font-size: 1.1rem;
+    color: var(--color-light);
+    background-clip: padding-box;
+    background-color: lighten(#1a1a1a, 3%);
+    border: 1px solid lighten(#1a1a1a, 15%);
+    border-radius: 0.25rem;
+    outline: none;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &::placeholder {
+      color: var(--color-light-grey);
+      opacity: 0.4;
+    }
+  }
 }

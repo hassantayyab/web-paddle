@@ -8,7 +8,7 @@ import { NoAuthGuard } from './shared/guards/no-auth.guard';
 const routes: Routes = [
   // { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
   {
-    path: 'authentication',
+    path: 'auth',
     loadChildren: () => import('./modules/pages/authentication/authentication.module').then(m => m.AuthenticationModule),
     canLoad: [NoAuthGuard]
   },

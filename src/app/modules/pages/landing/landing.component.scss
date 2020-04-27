@@ -23,6 +23,8 @@
   padding: var(--main-padding-y) var(--main-padding-x);
 
   header {
+    max-width: 90rem;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,15 +55,20 @@
             display: inline-block;
             text-align: center;
             margin-left: 2rem;
+            margin-right: 2rem;
             border: 2px solid var(--color-light-600);
             border-radius: 5rem;
             padding-top: 7px;
             padding-bottom: 7px;
             width: 6rem;
+            color: var(--color-light-600);
+            text-decoration: none;
+            cursor: pointer;
 
             @include ripple-effect();
 
             &:hover {
+              color: var(--color-light);
               border-color: var(--color-light);
               transition: all 0.2s ease-in-out;
             }
@@ -83,7 +90,7 @@
         }
       }
 
-      li {
+      li:not(.auth) {
         margin-right: 2rem;
 
         a {

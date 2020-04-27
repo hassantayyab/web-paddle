@@ -1,0 +1,129 @@
+@mixin box-shadow-hover {
+  -webkit-box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.2),
+    0 2px 8px 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.2),
+    0 2px 8px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.2), 0 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+@mixin ripple-effect {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#authentication {
+  background: var(--color-dark-grey);
+  color: var(--color-light);
+  min-height: var(--min-height);
+  padding: var(--main-padding-y) var(--main-padding-x);
+
+  header {
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      &:first-child {
+        font-size: 1.075rem;
+
+        li {
+          margin-right: 2rem;
+
+          &:first-child {
+            margin-right: 3.5rem;
+            img {
+              width: 11rem;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        li.auth {
+          a.login {
+            display: inline-block;
+            text-align: center;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            border: 2px solid var(--color-light-600);
+            border-radius: 5rem;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            width: 6rem;
+            color: var(--color-light-600);
+            text-decoration: none;
+            cursor: pointer;
+
+            @include ripple-effect();
+
+            &:hover {
+              color: var(--color-light);
+              border-color: var(--color-light);
+              transition: all 0.2s ease-in-out;
+            }
+          }
+
+          a.signup {
+            display: inline-block;
+            text-align: center;
+            background: var(--color-primary);
+            border-radius: 5rem;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            width: 6rem;
+            color: var(--color-light);
+
+            @include ripple-effect();
+            @include box-shadow-hover();
+          }
+        }
+      }
+
+      li:not(.auth) {
+        margin-right: 2rem;
+
+        a {
+          color: var(--color-light-600);
+          text-decoration: none;
+          cursor: pointer;
+
+          fa-icon {
+            color: var(--color-light-600);
+            font-size: 1.4rem;
+
+            &:hover {
+              color: var(--color-light);
+              transition: all 0.2s ease-in-out;
+            }
+          }
+
+          &:hover {
+            color: var(--color-light);
+            transition: all 0.2s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url("/assets/images/faded-background-image.png") 100% 65%
+      no-repeat;
+    filter: brightness(0.7);
+  }
+}

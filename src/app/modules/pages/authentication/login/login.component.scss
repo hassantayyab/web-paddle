@@ -1,0 +1,33 @@
+#login {
+  max-width: 60%;
+  margin: auto;
+
+  h1 {
+    color: var(--color-light);
+    margin-bottom: 2.8rem;
+  }
+
+  .separator {
+    margin: 2rem 0;
+
+    h3 {
+      text-align: center;
+      width: 60%;
+      margin: auto;
+      padding: 0 1rem;
+      color: var(--color-light-grey);
+
+      display: flex;
+      align-items: center;
+
+      &:before,
+      &:after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        margin: 0 1em;
+        background: var(--color-light-grey);
+      }
+    }
+  }
+}
