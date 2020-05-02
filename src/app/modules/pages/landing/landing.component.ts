@@ -44,12 +44,12 @@ export class LandingComponent implements OnInit {
       {
         class: 'login',
         title: 'Login',
-        // link: '/login'
+        link: 'auth/login'
       },
       {
         class: 'signup',
         title: 'Sign Up',
-        // link: '/register'
+        link: 'auth/register'
       }
     ]
   }

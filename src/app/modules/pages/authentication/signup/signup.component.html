@@ -1,1 +1,77 @@
-<p>signup works!</p>
+<div id="signup">
+
+  <div class="row">
+    <section class="col-12">
+      <h1>Sign up to WebPaddle</h1>
+    </section>
+
+    <!-- Social Logins -->
+    <section class="social-opts col-12">
+      <div class="col-6" matRipple (click)="auth$.signInGoogle()">
+        <div>
+          <img src="assets/images/google-logo.png" alt="">
+          <p>Sign up with Google</p>
+        </div>
+      </div>
+
+      <div class="col-6" matRipple (click)="auth$.signInFacebook()">
+        <div>
+          <img src="assets/images/facebook-logo.png" alt="">
+          <p>Sign up with Facebook</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separator -->
+    <section class="separator">
+      <h5>OR</h5>
+    </section>
+
+    <form class="row" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+      <!-- First & Last Name -->
+      <section class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <input type="text" id="firstName" placeholder="First Name" formControlName="firstName">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <input type="text" id="lastName" placeholder="Last Name" formControlName="lastName">
+          </div>
+        </div>
+      </section>
+
+      <!-- Email -->
+      <section class="col-12">
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Email" formControlName="email">
+        </div>
+      </section>
+
+      <!-- Password -->
+      <section class="col-12">
+        <div class="form-group">
+          <input matRipple type="password" id="password" placeholder="Password" formControlName="password">
+        </div>
+      </section>
+
+      <!-- Agreement-->
+      <section class="rm-fg col-12">
+        <div class="form-group inline">
+          <label for="agreement" class="container">I have read and agree to Terms & Conditions of WebPaddle.
+            <input type="checkbox" name="agreement" id="agreement" formControlName="agreement">
+            <span matRipple class="checkmark"></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Login Btn -->
+      <section class="col-12">
+        <button type="submit" mat-raised-button color="primary">Create Account</button>
+        <p>Already have an account? <u [routerLink]="['/auth/login']">Log in</u></p>
+      </section>
+
+    </form>
+  </div>
+</div>

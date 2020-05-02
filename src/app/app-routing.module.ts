@@ -4,7 +4,6 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { NoAuthGuard } from './shared/guards/no-auth.guard';
 
-
 const routes: Routes = [
   // { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
   {

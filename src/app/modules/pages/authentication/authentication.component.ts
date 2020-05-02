@@ -43,12 +43,12 @@ export class AuthenticationComponent implements OnInit {
       {
         class: 'login',
         title: 'Login',
-        // link: '/login'
+        link: 'login'
       },
       {
         class: 'signup',
         title: 'Sign Up',
-        // link: '/register'
+        link: 'register'
       }
     ]
   }

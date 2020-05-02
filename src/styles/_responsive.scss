@@ -3,10 +3,12 @@
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  width: 100%;
 
-  > div {
-    width: 100%;
-  }
+  // > div,
+  // > section {
+  //   width: 100%;
+  // }
 }
 
 /* Columns */
