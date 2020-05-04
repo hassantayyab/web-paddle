@@ -1,59 +1,139 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Credentials } from './authentication.interface';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { User, Login } from './authentication.interface';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  userData: any;
+  displayName: string;
+  user = new BehaviorSubject<any>(null);
 
-  constructor(public afAuth: AngularFireAuth) { }
-
-  signInGoogle() {
-    return this.authLogin(new firebase.auth.GoogleAuthProvider());
+  constructor(public afAuth: AngularFireAuth, private router: Router, private afs: AngularFirestore) {
+    this.getUserData();
   }
 
-  signInFacebook() {
-    return this.authLogin(new firebase.auth.FacebookAuthProvider());
-  }
+  async signInGoogle() {
+    const result: any = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    console.log('result =', result);
 
-  signInRegular(credentials: Credentials) {
-    const { email, password } = credentials;
-    return this.afAuth.signInWithEmailAndPassword(email, password);
-  }
-
-  async authLogin(provider: any) {
-    try {
-      const result = await this.afAuth.signInWithPopup(provider)
-      console.log('authLogin SUCCESS =>', result);
-    } catch (error) {
-      console.log(error);
+    const userData: User = {
+      uid: result.user.uid,
+      firstName: result.additionalUserInfo.profile.given_name,
+      lastName: result.additionalUserInfo.profile.family_name,
+      name: result.additionalUserInfo.profile.name,
+      email: result.additionalUserInfo.profile.email,
+      emailVerified: result.user.emailVerified,
+      picture: result.additionalUserInfo.profile.picture,
     }
+
+    this.setUserData(userData);
   }
 
-  async signUpRegular(credentials: Credentials) {
+  async signInFacebook() {
+    const result: any = await this.afAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+    console.log('result =', result);
+
+    const userData: User = {
+      uid: result.user.uid,
+      firstName: result.additionalUserInfo.profile.first_name,
+      lastName: result.additionalUserInfo.profile.last_name,
+      name: result.additionalUserInfo.profile.name,
+      email: result.additionalUserInfo.profile.email,
+      emailVerified: result.user.emailVerified,
+      picture: result.additionalUserInfo.profile.picture.data.url
+    }
+
+    this.setUserData(userData);
+  }
+
+  async signInRegular(credentials: Login) {
+    const { email, password } = credentials;
+    const result = await this.afAuth.signInWithEmailAndPassword(email, password);
+    console.log('result =', result);
+  }
+
+  async signUpRegular(credentials: User) {
     const { email, password } = credentials;
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
+      this.displayName = credentials.name;
       console.log('signUpRegular SUCCESS =>', result);
+      credentials['uid'] = result.user.uid;
+      this.setUserData(credentials);
     } catch (error) {
       console.log(error);;
     }
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+  }
+
+  setUserData(user: User) {
+    console.log('setUserData =', user);
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    const userData: User = {
+      email: user.email,
+      name: user.name,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      emailVerified: user.emailVerified,
+      picture: user.picture
+    }
+    return userRef.set(userData, {
+      merge: true
+    })
+  }
+
+  getUserData() {
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.userData = user;
+        if (!JSON.parse(localStorage.getItem('user')) || (JSON.parse(localStorage.getItem('user')) == null)) {
+          user.updateProfile({
+            displayName: this.displayName
+          })
+          localStorage.setItem('user', JSON.stringify(this.userData));
+          JSON.parse(localStorage.getItem('user'));
+        } else {
+          console.log('Already stored =', JSON.parse(localStorage.getItem('user')));
+        }
+
+        this.router.navigateByUrl('/home/dashboard');
+      } else {
+        localStorage.setItem('user', null);
+        JSON.parse(localStorage.getItem('user'));
+      }
+    })
+  }
+
+  get isAuthenticated(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    this.user.next(user);
+    return user !== null;
+  }
+
+  sendVerificationEmail() {
+    this.afAuth.authState.subscribe((user) => {
+      user.sendEmailVerification();
+      console.log('EMAIL Sent =>', user);
+    })
+  }
+
+  async sendPasswordResetEmail(email: string) {
+    return await this.afAuth.sendPasswordResetEmail(email);
   }
 
   async signOut() {
     try {
       const result = await this.afAuth.signOut();
       console.log('signOut SUCCESS =>', result);
+      localStorage.removeItem('user');
+      this.router.navigateByUrl('/auth/login');
     } catch (error) {
       console.log(error);
     }
-  }
-
-  private _setSession(authResult, profile) {
-    // Save authentication data and update login status subject
-
   }
 }

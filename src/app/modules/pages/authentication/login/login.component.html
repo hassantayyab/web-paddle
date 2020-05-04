@@ -26,18 +26,18 @@
       <h5>OR</h5>
     </section>
 
-    <form class="row">
+    <form class="row" [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <!-- Email -->
       <section class="col-12">
         <div class="form-group">
-          <input type="email" id="email" placeholder="Email">
+          <input type="email" id="email" placeholder="Email" formControlName="email">
         </div>
       </section>
 
       <!-- Password -->
       <section class="col-12">
         <div class="form-group">
-          <input matRipple type="password" id="password" placeholder="Password">
+          <input matRipple type="password" id="password" placeholder="Password" formControlName="password">
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from '../authentication.interface';
 
 @Component({
   selector: 'app-signup',
@@ -27,17 +28,20 @@ export class SignupComponent implements OnInit {
     })
   }
 
-  async onSignup(params: any = null) {
-    console.log('Signup', this.signupForm.value);
-
-    const obj = {
+  async onSignup() {
+    const obj: User = {
+      firstName: this.signupForm.controls['firstName'].value,
+      lastName: this.signupForm.controls['lastName'].value,
+      name: `${this.signupForm.controls['firstName'].value} ${this.signupForm.controls['lastName'].value}`,
       email: this.signupForm.controls['email'].value,
-      password: this.signupForm.controls['password'].value
+      password: this.signupForm.controls['password'].value,
+      picture: '',
+      emailVerified: false
     }
 
     try {
       const result = await this.auth$.signUpRegular(obj);
-      console.log('onSignup SUCCESS =>', result);
+      // console.log('onSignup SUCCESS =>', result);
     } catch (error) {
       console.log(error);
     }

@@ -5,7 +5,11 @@ import { environment } from 'src/environments/environment';
 
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MaterialModule } from './shared/modules/material/material.module';
+
+/* Firebase */
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +28,7 @@ import { httpInterceptorProviders } from './shared/interceptors';
     BrowserAnimationsModule,
     /* Firebase */
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AngularFireAuthModule
   ],
   providers: [httpInterceptorProviders],

@@ -9,11 +9,13 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./modules/pages/authentication/authentication.module').then(m => m.AuthenticationModule),
+    canActivate: [NoAuthGuard],
     canLoad: [NoAuthGuard]
   },
   {
     path: 'home',
     loadChildren: () => import('./modules/pages/home/home.module').then(m => m.HomeModule),
+    canActivate: [AuthGuard],
     canLoad: [AuthGuard]
   },
   { path: '', loadChildren: () => import('./modules/pages/landing/landing.module').then(m => m.LandingModule) },

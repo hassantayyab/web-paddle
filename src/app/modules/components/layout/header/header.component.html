@@ -4,7 +4,7 @@
     <input type="text" placeholder="Search" id="">
   </div>
 
-  <div class="user-greeting" matRipple>
+  <div class="user-greeting" matRipple (click)="auth$.signOut()">
     <div class="img-placeholder">
       <img src="assets/images/profile.jpg" alt="">
     </div>
