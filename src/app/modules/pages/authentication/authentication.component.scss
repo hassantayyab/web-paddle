@@ -1,3 +1,5 @@
+@use '../../../../styles/animations';
+
 @mixin box-shadow-hover {
   -webkit-box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.2),
     0 2px 8px 4px rgba(0, 0, 0, 0.1);
@@ -97,20 +99,22 @@
           color: var(--color-light-600);
           text-decoration: none;
           cursor: pointer;
+          transition: all 0.2s ease-in-out;
 
           fa-icon {
             color: var(--color-light-600);
             font-size: 1.4rem;
+            transition: all 0.2s ease-in-out;
 
             &:hover {
               color: var(--color-light);
-              transition: all 0.2s ease-in-out;
+              // transition: all 0.2s ease-in-out;
             }
           }
 
           &:hover {
             color: var(--color-light);
-            transition: all 0.2s ease-in-out;
+            // transition: all 0.2s ease-in-out;
           }
         }
       }
@@ -118,24 +122,26 @@
   }
 
   main {
+    z-index: 0;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     height: 100vh;
     background: url("/assets/images/faded-background-image.png") 100% 55%
       no-repeat;
-    filter: brightness(0.7);
+    // filter: brightness(0.7);
     margin-top: 4rem;
   }
 }
 
 #signup,
 #login {
+  z-index: 1;
   width: 40%;
   margin: auto;
 
   h1 {
-    color: var(--color-light-400);
+    color: var(--color-light);
     margin-bottom: 2rem;
   }
 
@@ -204,7 +210,7 @@
         }
 
         &:hover {
-          color: var(--color-light-400);
+          color: var(--color-light);
           background: rgba(255, 255, 255, 0.03);
         }
       }
@@ -221,7 +227,7 @@
 
         &:hover {
           text-decoration: underline;
-          color: var(--color-light-400);
+          color: var(--color-light);
         }
       }
     }

@@ -1,0 +1,11 @@
+<div id="snackbar" [class]="'warning'" (click)="_snackbarRef.dismiss()">
+  <section>
+    <span class="material-icons">
+      highlight_off
+    </span>
+  </section>
+  <section>
+    <h5>{{data.header}}</h5>
+    <p>{{data.message}}</p>
+  </section>
+</div>

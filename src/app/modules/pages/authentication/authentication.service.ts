@@ -5,6 +5,10 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { User, Login } from './authentication.interface';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { FormGroup } from '@angular/forms';
+import { ToasterService } from 'src/app/shared/modules/toaster/toaster.service';
+import { SnackbarService } from 'src/app/shared/services/snackbar.service';
+import { ToasterData } from 'src/app/shared/components/snackbar/snackbar-config';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +18,7 @@ export class AuthenticationService {
   displayName: string;
   user = new BehaviorSubject<any>(null);
 
-  constructor(public afAuth: AngularFireAuth, private router: Router, private afs: AngularFirestore) {
+  constructor(public afAuth: AngularFireAuth, private router: Router, private afs: AngularFirestore, private toaster$: ToasterService, private snackBar$: SnackbarService) {
     this.getUserData();
   }
 
@@ -53,13 +57,19 @@ export class AuthenticationService {
   }
 
   async signInRegular(credentials: Login) {
-    const { email, password } = credentials;
-    const result = await this.afAuth.signInWithEmailAndPassword(email, password);
-    console.log('result =', result);
+    const { email, password, rememberMe } = credentials;
+    if (rememberMe) this.onRemeberMe(credentials);
+    try {
+      const result = await this.afAuth.signInWithEmailAndPassword(email, password);
+      console.log('result =', result);
+    } catch (error) {
+      this.handleError(error);
+    }
   }
 
   async signUpRegular(credentials: User) {
     const { email, password } = credentials;
+
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       this.displayName = credentials.name;
@@ -67,7 +77,7 @@ export class AuthenticationService {
       credentials['uid'] = result.user.uid;
       this.setUserData(credentials);
     } catch (error) {
-      console.log(error);;
+      this.handleError(error);
     }
   }
 
@@ -126,6 +136,16 @@ export class AuthenticationService {
     return await this.afAuth.sendPasswordResetEmail(email);
   }
 
+  onRemeberMe(credentials: Login) {
+    const checked = credentials.rememberMe;
+
+    localStorage.removeItem('credentials');
+
+    if (checked) {
+      localStorage.setItem('credentials', JSON.stringify(credentials));
+    }
+  }
+
   async signOut() {
     try {
       const result = await this.afAuth.signOut();
@@ -135,5 +155,20 @@ export class AuthenticationService {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  handleError(error) {
+    console.log(error);
+    // this.toaster$.show({
+    //   type: 'warning',
+    //   text: error.message
+    // });
+
+    const toasterData: ToasterData = {
+      type: 'warning',
+      message: error.message
+    }
+
+    this.snackBar$.show(toasterData);
   }
 }

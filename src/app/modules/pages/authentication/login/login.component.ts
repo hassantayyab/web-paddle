@@ -10,6 +10,7 @@ import { Login } from '../authentication.interface';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  formSubmitted: boolean;
 
   constructor(private fb: FormBuilder, public auth$: AuthenticationService) {
     this.initForm();
@@ -19,24 +20,34 @@ export class LoginComponent implements OnInit {
   }
 
   initForm() {
+    this.formSubmitted = false;
+
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       rememberMe: [false]
     })
+
+    if (JSON.parse(localStorage.getItem('credentials'))) {
+      const credentials: Login = JSON.parse(localStorage.getItem('credentials'));
+      this.loginForm.patchValue({
+        email: credentials.email,
+        password: credentials.password,
+        rememberMe: credentials.rememberMe
+      })
+    }
   }
 
   async onLogin() {
-    const obj: Login = {
-      email: this.loginForm.controls['email'].value,
-      password: this.loginForm.controls['password'].value
-    }
+    this.formSubmitted = true;
+    this.loginForm.markAllAsTouched();
+    if (this.loginForm.invalid) return;
 
     try {
-      const result = await this.auth$.signInRegular(obj);
+      const result = await this.auth$.signInRegular(this.loginForm.value);
       // console.log('onSignup SUCCESS =>', result);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 }

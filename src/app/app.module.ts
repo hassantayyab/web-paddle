@@ -15,15 +15,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { httpInterceptorProviders } from './shared/interceptors';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { ToasterModule } from './shared/modules/toaster/toaster.module';
+import { SnackbarComponent } from './shared/components/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatProgressBarModule,
+    MatSnackBarModule,
+    ToasterModule.forRoot(),
     // MaterialModule,
     BrowserAnimationsModule,
     /* Firebase */

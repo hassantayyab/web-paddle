@@ -1,5 +1,5 @@
 <div id="login">
-  <div class="row">
+  <div class="row slide-left">
     <section class="col-12">
       <h1>Sign in to WebPaddle</h1>
     </section>
@@ -28,24 +28,33 @@
 
     <form class="row" [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <!-- Email -->
-      <section class="col-12">
-        <div class="form-group">
-          <input type="email" id="email" placeholder="Email" formControlName="email">
+      <section class="col-12 form-group">
+        <div class="form-control">
+          <input type="email" id="email" [class.submitted]="formSubmitted" placeholder="Email" formControlName="email">
+        </div>
+        <div class="form-error" [hidden]="!(formSubmitted && loginForm.get('email').invalid)">
+          <p *ngIf="loginForm.get('email').errors?.required">Email is required</p>
+          <p *ngIf="loginForm.get('email').errors?.email">Email is invalid</p>
         </div>
       </section>
 
       <!-- Password -->
-      <section class="col-12">
-        <div class="form-group">
-          <input matRipple type="password" id="password" placeholder="Password" formControlName="password">
+      <section class="col-12 form-group">
+        <div class="form-control">
+          <input matRipple type="password" id="password" [class.submitted]="formSubmitted" placeholder="Password"
+            formControlName="password">
+        </div>
+        <div class="form-error" [hidden]="!(formSubmitted && loginForm.get('password').invalid)">
+          <p *ngIf="loginForm.get('password').errors?.required">Password is required</p>
         </div>
       </section>
 
       <!-- Remember Me & Forgot Password -->
-      <section class="rm-fg col-12">
-        <div class="form-group inline">
+      <section class="rm-fg col-12 form-group">
+        <div class="form-control inline">
           <label for="rememberMe" class="container">Remember me
-            <input type="checkbox" name="Remember me" id="rememberMe">
+            <input type="checkbox" name="Remember me" id="rememberMe" formControlName="rememberMe"
+              (change)="auth$.onRemeberMe(loginForm.value)">
             <span matRipple class="checkmark"></span>
           </label>
         </div>

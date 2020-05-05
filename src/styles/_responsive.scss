@@ -50,5 +50,5 @@
 }
 
 [class*="col-"] {
-  padding: 0.75rem;
+  padding: var(--col-padding);
 }
