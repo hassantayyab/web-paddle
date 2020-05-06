@@ -1,7 +1,8 @@
 export class ToasterData {
-  type: ToasterType;
+  type?: ToasterType;
   header?: string;
-  message: string;
+  message?: string;
+  htmlMessage?: string;
   showCloseIcon?: boolean;
 }
 

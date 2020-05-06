@@ -231,11 +231,16 @@ section {
 
   /* Form Validations Start */
   .ng-invalid:not(form).ng-touched.submitted {
-    border: 2px solid var(--color-red-400);
+    border: 2px solid var(--color-danger-400);
     border-radius: 0.25rem 0.25rem 0 0.25rem;
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
+  }
+
+  .submitted + span.checkmark {
+    border-color: var(--color-danger-400);
+    transition: all 0.1s ease-in-out;
   }
 
   .form-error {
@@ -243,7 +248,7 @@ section {
     position: absolute;
     right: var(--col-padding);
     // left: var(--col-padding);
-    background: var(--color-red-400);
+    background: var(--color-danger-400);
     color: var(--color-light-400);
     margin-top: -2px;
     padding: 5px 8px;
@@ -252,7 +257,7 @@ section {
     @include slide-error();
 
     p {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 
@@ -269,8 +274,18 @@ section {
   right: 0;
   cursor: pointer;
 
+  &.info {
+    background: var(--color-light);
+    color: var(--color-dark-grey);
+  }
+
   &.warning {
-    background: var(--color-red-400);
+    background: var(--color-danger-400);
+    color: var(--color-light-400);
+  }
+
+  &.success {
+    background: var(--color-success);
     color: var(--color-light-400);
   }
 }

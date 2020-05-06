@@ -1,11 +1,17 @@
 <div id="snackbar" [class]="'warning'" (click)="_snackbarRef.dismiss()">
   <section>
-    <span class="material-icons">
-      highlight_off
-    </span>
+    <span class="material-icons" *ngIf="data.type == 'info'">info</span>
+    <span class="material-icons" *ngIf="data.type == 'success'">done</span>
+    <span class="material-icons" *ngIf="data.type == 'warning'">highlight_off</span>
   </section>
   <section>
     <h5>{{data.header}}</h5>
-    <p>{{data.message}}</p>
+    <p *ngIf="data.message">{{data.message}}</p>
+    <div *ngIf="data.htmlMessage" [innerHTML]="data.htmlMessage"></div>
+  </section>
+  <section *ngIf="data.showCloseIcon">
+    <span class="material-icons">
+      highlight_off
+    </span>
   </section>
 </div>

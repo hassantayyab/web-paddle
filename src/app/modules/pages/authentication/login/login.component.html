@@ -30,9 +30,10 @@
       <!-- Email -->
       <section class="col-12 form-group">
         <div class="form-control">
-          <input type="email" id="email" [class.submitted]="formSubmitted" placeholder="Email" formControlName="email">
+          <input type="email" id="email" [class.submitted]="formSubmitted || fpSubmitted" placeholder="Email"
+            formControlName="email">
         </div>
-        <div class="form-error" [hidden]="!(formSubmitted && loginForm.get('email').invalid)">
+        <div class="form-error" [hidden]="!((formSubmitted || fpSubmitted) && loginForm.get('email').invalid)">
           <p *ngIf="loginForm.get('email').errors?.required">Email is required</p>
           <p *ngIf="loginForm.get('email').errors?.email">Email is invalid</p>
         </div>
@@ -59,7 +60,7 @@
           </label>
         </div>
 
-        <a>Forgot Password?</a>
+        <a (click)="onForgotPassword()">Forgot Password?</a>
       </section>
 
       <!-- Login Btn -->

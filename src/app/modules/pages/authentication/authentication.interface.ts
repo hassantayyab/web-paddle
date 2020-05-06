@@ -9,6 +9,17 @@ export interface User {
   picture: string;
 }
 
+export interface UserData {
+  uid: string;
+  firstName: string;
+  lastName: string;
+  displayName: string;
+  name: string;
+  email: string;
+  emailVerified: boolean;
+  photoURL: string;
+}
+
 export interface Login {
   email: string;
   password: string;

@@ -16,44 +16,51 @@ import { ToasterData } from 'src/app/shared/components/snackbar/snackbar-config'
 export class AuthenticationService {
   userData: any;
   displayName: string;
-  user = new BehaviorSubject<any>(null);
+  user$ = new BehaviorSubject<any>(null);
 
-  constructor(public afAuth: AngularFireAuth, private router: Router, private afs: AngularFirestore, private toaster$: ToasterService, private snackBar$: SnackbarService) {
+  constructor(public afAuth: AngularFireAuth, private router: Router, private afs: AngularFirestore, private _snackbar: SnackbarService) {
     this.getUserData();
   }
 
   async signInGoogle() {
-    const result: any = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    console.log('result =', result);
+    try {
+      const result: any = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      console.log('result =', result);
 
-    const userData: User = {
-      uid: result.user.uid,
-      firstName: result.additionalUserInfo.profile.given_name,
-      lastName: result.additionalUserInfo.profile.family_name,
-      name: result.additionalUserInfo.profile.name,
-      email: result.additionalUserInfo.profile.email,
-      emailVerified: result.user.emailVerified,
-      picture: result.additionalUserInfo.profile.picture,
+      const userData: User = {
+        uid: result.user.uid,
+        firstName: result.additionalUserInfo.profile.given_name,
+        lastName: result.additionalUserInfo.profile.family_name,
+        name: result.additionalUserInfo.profile.name,
+        email: result.additionalUserInfo.profile.email,
+        emailVerified: result.user.emailVerified,
+        picture: result.additionalUserInfo.profile.picture,
+      }
+
+      this.setUserData(userData);
+    } catch (error) {
+      this.handleError(error);
     }
-
-    this.setUserData(userData);
   }
 
   async signInFacebook() {
-    const result: any = await this.afAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
-    console.log('result =', result);
+    try {
+      const result: any = await this.afAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+      console.log('result =', result);
+      const userData: User = {
+        uid: result.user.uid,
+        firstName: result.additionalUserInfo.profile.first_name,
+        lastName: result.additionalUserInfo.profile.last_name,
+        name: result.additionalUserInfo.profile.name,
+        email: result.additionalUserInfo.profile.email,
+        emailVerified: result.user.emailVerified,
+        picture: result.additionalUserInfo.profile.picture.data.url
+      }
 
-    const userData: User = {
-      uid: result.user.uid,
-      firstName: result.additionalUserInfo.profile.first_name,
-      lastName: result.additionalUserInfo.profile.last_name,
-      name: result.additionalUserInfo.profile.name,
-      email: result.additionalUserInfo.profile.email,
-      emailVerified: result.user.emailVerified,
-      picture: result.additionalUserInfo.profile.picture.data.url
+      this.setUserData(userData);
+    } catch (error) {
+      this.handleError(error);
     }
-
-    this.setUserData(userData);
   }
 
   async signInRegular(credentials: Login) {
@@ -108,7 +115,7 @@ export class AuthenticationService {
           localStorage.setItem('user', JSON.stringify(this.userData));
           JSON.parse(localStorage.getItem('user'));
         } else {
-          console.log('Already stored =', JSON.parse(localStorage.getItem('user')));
+          // console.log('Already stored =', JSON.parse(localStorage.getItem('user')));
         }
 
         this.router.navigateByUrl('/home/dashboard');
@@ -121,7 +128,7 @@ export class AuthenticationService {
 
   get isAuthenticated(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    this.user.next(user);
+    this.user$.next(user);
     return user !== null;
   }
 
@@ -133,7 +140,17 @@ export class AuthenticationService {
   }
 
   async sendPasswordResetEmail(email: string) {
-    return await this.afAuth.sendPasswordResetEmail(email);
+    try {
+      await this.afAuth.sendPasswordResetEmail(email);
+      const toasterData: ToasterData = {
+        showCloseIcon: true,
+        htmlMessage: `<p>A verification email has been sent to <b>${email}</b>.</p>`
+      }
+
+      this._snackbar.showSuccess(toasterData);
+    } catch (error) {
+      this.handleError(error);
+    }
   }
 
   onRemeberMe(credentials: Login) {
@@ -157,18 +174,13 @@ export class AuthenticationService {
     }
   }
 
-  handleError(error) {
+  handleError(error: any) {
     console.log(error);
-    // this.toaster$.show({
-    //   type: 'warning',
-    //   text: error.message
-    // });
 
     const toasterData: ToasterData = {
-      type: 'warning',
       message: error.message
     }
 
-    this.snackBar$.show(toasterData);
+    this._snackbar.showError(toasterData);
   }
 }

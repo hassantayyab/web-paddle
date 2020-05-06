@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Dashboard } from 'src/app/shared/interfaces/commons.interface';
+import { AuthenticationService } from '../../authentication/authentication.service';
+import { UserData } from '../../authentication/authentication.interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,12 +10,14 @@ import { Dashboard } from 'src/app/shared/interfaces/commons.interface';
 })
 export class DashboardComponent implements OnInit {
   dahboardData: Dashboard[];
+  user: UserData;
 
-  constructor() {
+  constructor(public _auth: AuthenticationService) {
     this.initializeDashboardData();
   }
 
   ngOnInit(): void {
+    this._auth.user$.subscribe((result: UserData) => this.user = result)
   }
 
   initializeDashboardData() {

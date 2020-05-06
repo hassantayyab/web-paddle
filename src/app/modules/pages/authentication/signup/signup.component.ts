@@ -10,6 +10,7 @@ import { User } from '../authentication.interface';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
+  formSubmitted: boolean;
 
   constructor(private fb: FormBuilder, public auth$: AuthenticationService) {
     this.initForm();
@@ -24,11 +25,15 @@ export class SignupComponent implements OnInit {
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      agreement: [false]
+      agreement: ['', [Validators.required, Validators.pattern('true')]]
     })
   }
 
   async onSignup() {
+    this.formSubmitted = true;
+    this.signupForm.markAllAsTouched();
+    if (this.signupForm.invalid) return;
+
     const obj: User = {
       firstName: this.signupForm.controls['firstName'].value,
       lastName: this.signupForm.controls['lastName'].value,

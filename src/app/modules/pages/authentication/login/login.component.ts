@@ -11,6 +11,7 @@ import { Login } from '../authentication.interface';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   formSubmitted: boolean;
+  fpSubmitted: boolean;
 
   constructor(private fb: FormBuilder, public auth$: AuthenticationService) {
     this.initForm();
@@ -38,16 +39,22 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  async onForgotPassword(params: any = null) {
+    console.log('ForgotPassword', params);
+    this.fpSubmitted = true;
+    this.loginForm.get('email').markAsTouched();
+    if (this.loginForm.get('email').invalid) return;
+
+    this.auth$.sendPasswordResetEmail(this.loginForm.controls['email'].value);
+
+  }
+
   async onLogin() {
+    this.fpSubmitted = false;
     this.formSubmitted = true;
     this.loginForm.markAllAsTouched();
     if (this.loginForm.invalid) return;
 
-    try {
-      const result = await this.auth$.signInRegular(this.loginForm.value);
-      // console.log('onSignup SUCCESS =>', result);
-    } catch (error) {
-      // console.log(error);
-    }
+    await this.auth$.signInRegular(this.loginForm.value);
   }
 }

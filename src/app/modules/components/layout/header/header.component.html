@@ -6,8 +6,8 @@
 
   <div class="user-greeting" matRipple (click)="auth$.signOut()">
     <div class="img-placeholder">
-      <img src="assets/images/profile.jpg" alt="">
+      <img src="assets/images/profile.jpg" alt="profile_image">
     </div>
-    <p>Good Morning, Hassan</p>
+    <p *ngIf="user">Good Morning, {{user.displayName.split(' ')[0]}}</p>
   </div>
 </header>
