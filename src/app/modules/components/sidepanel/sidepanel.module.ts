@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatRippleModule } from '@angular/material/core';
 import { NewsComponent } from '../news/news.component';
-
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [NewsComponent],
   imports: [
     CommonModule,
-    MatRippleModule
+    MatTooltipModule
   ]
 })
 export class SidepanelModule { }

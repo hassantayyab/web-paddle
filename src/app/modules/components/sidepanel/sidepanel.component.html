@@ -1,12 +1,29 @@
 <aside id="sidepanel">
+
   <ul>
     <li>
       <app-weather></app-weather>
     </li>
   </ul>
-  <ul>
-    <li *ngFor="let news of newsSource">
-      <app-news [newsData]="news"></app-news>
-    </li>
-  </ul>
+
+  <section class="init-loader" *ngIf="newsSource.length == 0 && loading">
+    <mat-spinner [diameter]="spinnerDiameter"></mat-spinner>
+  </section>
+
+  <!-- News Scroll -->
+  <div class="news-scroll" infiniteScroll [infiniteScrollDistance]="0" [infiniteScrollThrottle]="75"
+    (scrolled)="fetchNews(pageNumber+1)" [scrollWindow]="false">
+    <ul *ngIf="newsSource.length > 0">
+      <li *ngFor="let news of newsSource">
+        <app-news [newsData]="news"></app-news>
+      </li>
+    </ul>
+    <section class="scroll-loader" *ngIf="newsSource.length > 0 && loading">
+      <div>
+        <mat-spinner [diameter]="spinnerDiameter - 15"></mat-spinner>
+      </div>
+    </section>
+  </div>
+
+
 </aside>

@@ -12,6 +12,8 @@ import { HeaderComponent } from '../../components/layout/header/header.component
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MaterialModule } from 'src/app/shared/modules/material/material.module';
 import { MatRippleModule } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -27,6 +29,9 @@ import { MatRippleModule } from '@angular/material/core';
   imports: [
     CommonModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
+    MatRippleModule,
+    InfiniteScrollModule,
     // MaterialModule,
     HomeRoutingModule
   ]

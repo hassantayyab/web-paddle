@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ToasterModule } from './shared/modules/toaster/toaster.module';
 import { SnackbarComponent } from './shared/components/snackbar/snackbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SnackbarComponent } from './shared/components/snackbar/snackbar.compone
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MatProgressBarModule,
     MatSnackBarModule,

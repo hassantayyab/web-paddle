@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
+  newsApi: {
+    key: 'a361381db9514fa98ce2077e4674c9f6'
+  },
   firebase: {
     apiKey: "AIzaSyAu_gHFI1hoWdeqxs-PAxg0p7Nd70Nve4E",
     authDomain: "webpaddle-66dc0.firebaseapp.com",
