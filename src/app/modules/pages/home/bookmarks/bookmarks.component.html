@@ -2,17 +2,19 @@
   <section>
     <header>
       <h2>Bookmarks</h2>
-      <button mat-raised-button color="primary">
+      <button type="button" mat-raised-button color="primary" (click)="_bookmarks.onAddBookmark()">
         <i class="material-icons">add</i> Add Bookmark
       </button>
     </header>
 
     <main>
-      <div class="items-sect">
-        <div class="item default-card-shadow" matRipple *ngFor="let bookmark of bookmarks.items">
-          <img [src]="bookmark.thumbnail" alt="img">
+      <section class="items-sect" *ngIf="bookmarks$ | async as bookmarks">
+        <div class="item default-card-shadow" matRipple *ngFor="let bookmark of bookmarks" [matTooltip]="bookmark.title"
+          [matTooltipPosition]="_helpers.bookmarksToolTipPosition" (click)="_helpers.openLinkInNewTab(bookmark.url)">
+          <img *ngIf="bookmark.thumbnail" [src]="bookmark.thumbnail" alt="thumnbnail">
+          <h3 class="text-sl" *ngIf="!bookmark.thumbnail">{{bookmark.title}}</h3>
         </div>
-      </div>
+      </section>
     </main>
 
     <!-- Fab Button -->

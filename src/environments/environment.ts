@@ -7,6 +7,9 @@ export const environment = {
   newsApi: {
     key: 'a361381db9514fa98ce2077e4674c9f6'
   },
+  weatherApi: {
+    key: '0f6be520177efdc63ea7a84a6f4fae7a'
+  },
   firebase: {
     apiKey: "AIzaSyAu_gHFI1hoWdeqxs-PAxg0p7Nd70Nve4E",
     authDomain: "webpaddle-66dc0.firebaseapp.com",

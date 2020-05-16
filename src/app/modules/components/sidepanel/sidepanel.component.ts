@@ -23,7 +23,6 @@ export class SidepanelComponent implements OnInit {
   }
 
   fetchNews(pageNumber: number = 1) {
-    console.log('scrolled! =', pageNumber);
     this.loading = true;
 
     this.pageNumber = pageNumber;
@@ -38,7 +37,6 @@ export class SidepanelComponent implements OnInit {
 
     this._sidePanel.getNews(options).subscribe(
       (result: any) => {
-        console.log('result', result);
         this.newsSource = [...this.newsSource, ...result];
         this.loading = false;
       }

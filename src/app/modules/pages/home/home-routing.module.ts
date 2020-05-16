@@ -13,11 +13,11 @@ const routes: Routes = [
       { path: 'music', loadChildren: () => import('./music/music.module').then(m => m.MusicModule) },
       { path: 'radio', loadChildren: () => import('./radio/radio.module').then(m => m.RadioModule) },
       { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
-      {
-        path: '',
-        redirectTo: '/home/dashboard',
-        pathMatch: 'full'
-      }
+      // {
+      //   path: '',
+      //   redirectTo: '/home/dashboard',
+      //   pathMatch: 'full'
+      // }
     ]
   },
   {

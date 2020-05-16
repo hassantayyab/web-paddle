@@ -20,6 +20,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { ToasterModule } from './shared/modules/toaster/toaster.module';
 import { SnackbarComponent } from './shared/components/snackbar/snackbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     MatProgressBarModule,
     MatSnackBarModule,
+    MatDialogModule,
     ToasterModule.forRoot(),
     // MaterialModule,
     BrowserAnimationsModule,
