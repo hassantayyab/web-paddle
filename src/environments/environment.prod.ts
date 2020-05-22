@@ -8,6 +8,6 @@ export const environment = {
     storageBucket: "webpaddle-66dc0.appspot.com",
     messagingSenderId: "479049588486",
     appId: "1:479049588486:web:6e8cf68426a990b0b50887",
-    measurementId: "G-09Y5020CZQ"
-  }
+    measurementId: "G-09Y5020CZQ",
+  },
 };
