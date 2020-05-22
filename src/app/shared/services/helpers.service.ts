@@ -1,15 +1,25 @@
 import { Injectable } from '@angular/core';
 import { paddleConstants } from '../constants/constants';
+import { AbstractControl } from '@angular/forms';
+import isURL from "validator/es/lib/isURL";
+
+export function ValidateURL(control: AbstractControl): { [key: string]: any } | null {
+    if (!isURL(control.value, { require_protocol: true })) {
+      return { invalid: true };
+    }
+
+    return null;
+  }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class HelpersService {
   /* ToolTips */
   newsToolTipPosition: string = paddleConstants.newsToolTipPositon;
   bookmarksToolTipPosition: string = paddleConstants.bookmarkToolTipPositon;
 
-  constructor() { }
+  constructor() {}
 
   openLinkInNewTab(url: string) {
     window.open(url, "_blank");

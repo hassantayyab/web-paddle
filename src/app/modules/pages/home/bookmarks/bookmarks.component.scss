@@ -28,11 +28,20 @@
         grid-gap: 2rem;
 
         .item {
+          position: relative;
           cursor: pointer;
           width: 11rem;
           height: 8rem;
           border-radius: var(--border-radius);
           display: flex;
+
+          button {
+            z-index: 2;
+            position: absolute;
+            right: 0;
+            visibility: hidden;
+            opacity: 0;
+          }
 
           img {
             width: 100%;
@@ -47,6 +56,14 @@
             padding: 0 1rem;
             margin: auto;
             text-align: center;
+          }
+
+          &:hover {
+            button {
+              visibility: visible;
+              opacity: 1;
+              transition: visibility opacity 0.2s ease-in-out;
+            }
           }
         }
       }

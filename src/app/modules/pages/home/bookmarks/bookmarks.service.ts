@@ -8,9 +8,9 @@ import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
 
 export interface Bookmark {
   title: string;
-  created_at: Date;
+  created_at: any;
   created_by: string;
-  updated_at: Date;
+  updated_at: any;
   url: string;
   thumbnail: string;
 }
@@ -41,6 +41,10 @@ export class BookmarksService {
           })
         })
       )
+  }
+
+  postBookmark(params: any = {}) {
+    this.bookmarksCollection.add(params);
   }
 
   onAddBookmark() {

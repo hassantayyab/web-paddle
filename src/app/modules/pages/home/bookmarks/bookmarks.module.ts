@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BookmarksRoutingModule } from './bookmarks-routing.module';
 import { BookmarksComponent } from './bookmarks.component';
 import { MatButtonModule } from '@angular/material/button';
-import { MaterialModule } from 'src/app/shared/modules/material/material.module';
+import { MatMenuModule } from "@angular/material/menu";
 import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
 import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
     MatRippleModule,
     MatTooltipModule,
     // MaterialModule,

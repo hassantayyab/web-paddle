@@ -9,11 +9,11 @@
       <!-- Title -->
       <section class="col-12 form-group">
         <div class="form-control">
-          <span class="material-icons icon">
+          <i class="material-icons icon">
             title
-          </span>
+          </i>
           <input type="text" id="title" [class.submitted]="formSubmitted && addBookmarkForm.get('title').invalid"
-            placeholder="Title" formControlName="title">
+            placeholder="Title" formControlName="title" [maxlength]="_constants.maxLength">
         </div>
         <div class="form-error" [hidden]="!(formSubmitted && addBookmarkForm.get('title').invalid)">
           <p *ngIf="addBookmarkForm.get('title').errors?.required">Title is required</p>
@@ -23,30 +23,39 @@
       <!-- URL -->
       <section class="col-12 form-group">
         <div class="form-control">
+          <i class="material-icons icon">
+            link
+          </i>
           <input type="text" id="url" [class.submitted]="formSubmitted && addBookmarkForm.get('url').invalid"
-            placeholder="Bookmark URL" formControlName="url">
+            placeholder="Bookmark URL (e.g. https://www.google.com)" formControlName="url">
         </div>
         <div class="form-error" [hidden]="!(formSubmitted && addBookmarkForm.get('url').invalid)">
           <p *ngIf="addBookmarkForm.get('url').errors?.required">Website URL is required</p>
+          <p *ngIf="addBookmarkForm.get('url').errors?.invalid && !addBookmarkForm.get('url').errors?.required">Website URL is invalid</p>
         </div>
       </section>
 
       <!-- Thumbnail -->
       <section class="col-12 form-group">
         <div class="form-control">
+          <i class="material-icons icon">
+            insert_photo
+          </i>
           <input type="text" id="thumbnail"
-            [class.submitted]="formSubmitted && addBookmarkForm.get('thumbnail').invalid" placeholder="Thumbnail URL"
+            [class.submitted]="formSubmitted && addBookmarkForm.get('thumbnail').invalid" placeholder="Thumbnail URL (e.g. https://www.google.com)"
             formControlName="thumbnail">
         </div>
         <div class="form-error" [hidden]="!(formSubmitted && addBookmarkForm.get('thumbnail').invalid)">
           <p *ngIf="addBookmarkForm.get('thumbnail').errors?.required">Thumbnail URL is required</p>
+          <p *ngIf="addBookmarkForm.get('thumbnail').errors?.invalid && !addBookmarkForm.get('thumbnail').errors?.required">Thumbnail URL is
+            invalid</p>
         </div>
       </section>
 
       <!-- Action Btns -->
       <section class="col-12">
         <button type="submit" mat-raised-button color="primary"><i class="material-icons">add</i> Add</button>
-        <button type="button" mat-stroked-button color="primary">Cancel</button>
+        <button type="button" mat-stroked-button color="primary" (click)="dialogRef.close()">Cancel</button>
       </section>
     </form>
   </section>

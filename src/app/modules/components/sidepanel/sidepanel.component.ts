@@ -29,6 +29,7 @@ export class SidepanelComponent implements OnInit {
 
     const options = {
       // q: 'bitcoin',
+      // apiKey: 'a6e4f91f1b554f76b00cb969acd1292d',
       language: 'en',
       sortBy: 'popularity',
       pageSize: this.pageSize,

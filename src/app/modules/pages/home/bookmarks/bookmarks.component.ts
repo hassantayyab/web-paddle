@@ -186,5 +186,4 @@ export class BookmarksComponent implements OnInit {
   fetchBookmarks() {
     this.bookmarks$ = this._bookmarks.getBookmarks();
   }
-
 }
