@@ -10,6 +10,8 @@ import { MaterialModule } from './shared/modules/material/material.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
+import { ContextMenuModule } from "ngx-contextmenu";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,10 +26,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SnackbarComponent,
-  ],
+  declarations: [AppComponent, SnackbarComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -42,9 +41,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     /* Firebase */
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    /* Context Menu */
+    // ContextMenuModule.forRoot()
   ],
   providers: [httpInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

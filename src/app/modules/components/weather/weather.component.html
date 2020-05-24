@@ -1,18 +1,25 @@
 <div id="weather" class="default-card-shadow">
-  <div>
+  <div *ngIf="weather">
     <div class="media">
       <span class="material-icons">wb_sunny</span>
     </div>
 
     <div class="content">
       <div class="row-1">
-        <h5>24c in Lahore</h5>
-        <h5>26c / 15c</h5>
+        <h5>{{ weather.temp }}<span>&#x2103;</span> in Lahore</h5>
+        <h5>
+          <span class="material-icons">
+            toys
+          </span>
+          {{ weather.wind_speed }}<span>m/s</span>
+        </h5>
       </div>
 
       <div class="row-2">
-        <p>Partly Sunny</p>
-        <p>0% today</p>
+        <p>
+          {{ weather.weather[0].description }}
+        </p>
+        <p>{{ weather.humidity }}% today</p>
       </div>
     </div>
   </div>

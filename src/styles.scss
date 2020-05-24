@@ -226,3 +226,31 @@ section {
 }
 
 /* Toaster Container Classes Ends */
+
+/* Context Menu Classes Starts */
+.ngx-contextmenu {
+  .dropdown-menu {
+    border: solid 1px var(--color-dark-grey-400);
+    border-radius: 4px;
+    background-color: var(--color-dark-grey-400);
+    padding: 0.5rem 0;
+    width: 8rem;
+    overflow: hidden;
+
+    @include scale-up-ver-top();
+    @include menu-shadow();
+  }
+
+  a {
+    color: var(--color-light);
+    display: block;
+    padding: 0.7rem 1rem;
+
+    &:hover {
+      color: var(--color-light);
+      background-color: lighten(#262626, 4);
+    }
+  }
+}
+
+/* Context Menu Classes Ends */

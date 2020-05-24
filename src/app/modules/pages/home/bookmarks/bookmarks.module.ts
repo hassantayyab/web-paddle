@@ -10,6 +10,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
+import { ContextMenuModule } from 'ngx-contextmenu';
 
 
 @NgModule({
@@ -25,7 +26,9 @@ import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
     MatRippleModule,
     MatTooltipModule,
     // MaterialModule,
-    BookmarksRoutingModule
-  ]
+    BookmarksRoutingModule,
+    /* Context Menu */
+    ContextMenuModule.forRoot(),
+  ],
 })
-export class BookmarksModule { }
+export class BookmarksModule {}

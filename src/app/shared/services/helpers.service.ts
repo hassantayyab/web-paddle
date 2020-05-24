@@ -1,15 +1,17 @@
-import { Injectable } from '@angular/core';
-import { paddleConstants } from '../constants/constants';
-import { AbstractControl } from '@angular/forms';
+import { Injectable } from "@angular/core";
+import { paddleConstants } from "../constants/constants";
+import { AbstractControl } from "@angular/forms";
 import isURL from "validator/es/lib/isURL";
 
-export function ValidateURL(control: AbstractControl): { [key: string]: any } | null {
-    if (!isURL(control.value, { require_protocol: true })) {
-      return { invalid: true };
-    }
-
-    return null;
+export function ValidateURL(
+  control: AbstractControl
+): { [key: string]: any } | null {
+  if (control.value && !isURL(control.value, { require_protocol: true })) {
+    return { invalid: true };
   }
+
+  return null;
+}
 
 @Injectable({
   providedIn: "root",
