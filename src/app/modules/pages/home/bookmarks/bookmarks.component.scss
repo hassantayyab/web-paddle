@@ -4,12 +4,11 @@
   padding: var(--main-padding-y) var(--main-padding-x);
 
   section {
-    margin-top: 8rem;
-
     header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      margin-top: 8rem;
 
       button {
         padding: 0.1rem 1.5rem;

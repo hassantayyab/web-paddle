@@ -7,7 +7,10 @@
     <div class="content">
       <div class="row-1">
         <h5>{{ weather.temp }}<span>&#x2103;</span> in Lahore</h5>
-        <h5>
+        <h5
+          [matTooltip]="windTooltip"
+          [matTooltipPosition]="_helpers.newsToolTipPosition"
+        >
           <span class="material-icons">
             toys
           </span>
@@ -19,7 +22,7 @@
         <p>
           {{ weather.weather[0].description }}
         </p>
-        <p>{{ weather.humidity }}% today</p>
+        <p>{{ weather.humidity }}% humidity</p>
       </div>
     </div>
   </div>

@@ -20,11 +20,19 @@ small {
   font-size: 12px;
 }
 
-.matDialogCustomClass {
+.matPrimaryDialogClass {
   .mat-dialog-container {
     background-color: var(--color-dark-grey);
     border-radius: var(--border-radius);
     padding: 3rem;
+  }
+}
+
+.matDeleteDialogClass {
+  .mat-dialog-container {
+    background-color: var(--color-dark-grey);
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
   }
 }
 

@@ -81,7 +81,7 @@ export class BookmarksService {
         title: "Add Bookmark",
         bookmark: null,
       },
-      panelClass: "matDialogCustomClass",
+      panelClass: "matPrimaryDialogClass",
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
@@ -96,7 +96,7 @@ export class BookmarksService {
         title: "Update Bookmark",
         bookmark,
       },
-      panelClass: "matDialogCustomClass",
+      panelClass: "matPrimaryDialogClass",
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {

@@ -3,6 +3,7 @@ import {
   WeatherService,
   Weather,
 } from "src/app/shared/services/weather.service";
+import { HelpersService } from "src/app/shared/services";
 
 @Component({
   selector: "app-weather",
@@ -11,8 +12,12 @@ import {
 })
 export class WeatherComponent implements OnInit {
   weather: Weather;
+  windTooltip: string = "Wind speed";
 
-  constructor(private _weather: WeatherService) {}
+  constructor(
+    private _weather: WeatherService,
+    public _helpers: HelpersService
+  ) {}
 
   async ngOnInit(): Promise<void> {
     this.weather = (await this._weather.initWeather()) as Weather;

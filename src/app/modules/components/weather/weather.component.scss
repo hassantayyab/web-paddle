@@ -32,7 +32,7 @@
         justify-content: space-between;
         align-items: center;
 
-        span {
+        .material-icons {
           font-size: 14px;
         }
       }
@@ -42,7 +42,18 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        text-transform: capitalize;
+
+        p:first-child {
+          text-transform: capitalize;
+        }
+
+        p:last-child {
+          display: flex;
+          align-items: flex-end;
+          .material-icons {
+            font-size: 1.25rem;
+          }
+        }
       }
     }
   }

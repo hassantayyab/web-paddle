@@ -43,14 +43,19 @@ export class BookmarksComponent implements OnInit {
     this.bookmarks$ = this._bookmarks.getBookmarks();
   }
 
-  onTakeAction(action: string, bookmark: Bookmark) {
+  async onTakeAction(action: string, bookmark: Bookmark) {
     switch (action) {
       case "edit":
         this._bookmarks.onEditBookmark(bookmark);
         break;
 
       case "delete":
-        this._bookmarks.deleteBookmark(bookmark.id);
+        // this._bookmarks.deleteBookmark(bookmark.id);
+        const isDelete: boolean = (await this._helpers.onDeleteDialog(
+          bookmark.id,
+          "Delete Bookmark"
+        )) as boolean;
+        isDelete ? this._bookmarks.deleteBookmark(bookmark.id) : "";
         break;
     }
   }
