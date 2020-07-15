@@ -11,7 +11,7 @@ import { ToasterComponent } from './toaster.component';
   entryComponents: [ToasterComponent]
 })
 export class ToasterModule {
-  public static forRoot(config = defaultToastConfig): ModuleWithProviders {
+  public static forRoot(config = defaultToastConfig): ModuleWithProviders<ToasterModule> {
     return {
       ngModule: ToasterModule,
       providers: [
