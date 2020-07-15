@@ -1,0 +1,26 @@
+<section id="home">
+  <!-- SIDE NAVIGATION -->
+  <aside>
+    <app-sidenav></app-sidenav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- HEADER -->
+    <app-header id="header" [user]="user"></app-header>
+
+    <!-- Routing -->
+    <router-outlet id="home"></router-outlet>
+
+    <!-- MUSIC PLAYER -->
+    <div id="music-player">
+      <app-music-player></app-music-player>
+    </div>
+  </main>
+
+  <!-- SIDE PANEL -->
+  <aside>
+    <app-sidepanel></app-sidepanel>
+  </aside>
+</section>

@@ -1,0 +1,94 @@
+<div id="signup">
+
+  <div class="row slide-right">
+    <section class="col-12">
+      <h1>Sign up to WebPaddle</h1>
+    </section>
+
+    <!-- Social Logins -->
+    <section class="social-opts col-12">
+      <div class="col-6" matRipple (click)="auth$.signInGoogle()">
+        <div>
+          <img src="assets/images/google-logo.png" alt="">
+          <p>Sign up with Google</p>
+        </div>
+      </div>
+
+      <div class="col-6" matRipple (click)="auth$.signInFacebook()">
+        <div>
+          <img src="assets/images/facebook-logo.png" alt="">
+          <p>Sign up with Facebook</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separator -->
+    <section class="separator">
+      <h5>OR</h5>
+    </section>
+
+    <form class="row" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+      <!-- First & Last Name -->
+      <section class="row">
+        <div class="col-6 form-group">
+          <div class="form-control">
+            <input type="text" id="firstName" [class.submitted]="formSubmitted" placeholder="First Name"
+              formControlName="firstName">
+          </div>
+          <div class="form-error" [hidden]="!(formSubmitted && signupForm.get('firstName').invalid)">
+            <p *ngIf="signupForm.get('firstName').errors?.required">First Name is required</p>
+          </div>
+        </div>
+        <div class="col-6 form-group">
+          <div class="form-control">
+            <input type="text" id="lastName" [class.submitted]="formSubmitted" placeholder="Last Name"
+              formControlName="lastName">
+          </div>
+          <div class="form-error" [hidden]="!(formSubmitted && signupForm.get('lastName').invalid)">
+            <p *ngIf="signupForm.get('lastName').errors?.required">Last Name is required</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Email -->
+      <section class="col-12 form-group">
+        <div class="form-control">
+          <input type="email" id="email" [class.submitted]="formSubmitted" placeholder="Email" formControlName="email">
+        </div>
+        <div class="form-error" [hidden]="!(formSubmitted && signupForm.get('email').invalid)">
+          <p *ngIf="signupForm.get('email').errors?.required">Email is required</p>
+          <p *ngIf="signupForm.get('email').errors?.email">Email is invalid</p>
+        </div>
+      </section>
+
+      <!-- Password -->
+      <section class="col-12 form-group">
+        <div class="form-control">
+          <input matRipple type="password" id="password" [class.submitted]="formSubmitted" placeholder="Password"
+            formControlName="password">
+        </div>
+        <div class="form-error" [hidden]="!(formSubmitted && signupForm.get('password').invalid)">
+          <p *ngIf="signupForm.get('password').errors?.required">Password is required</p>
+        </div>
+      </section>
+
+      <!-- Agreement-->
+      <section class="rm-fg col-12 form-group">
+        <div class="form-control inline">
+          <label for="agreement" class="container">I have read and agree to Terms & Conditions of WebPaddle.
+            <input type="checkbox" name="agreement" id="agreement" [class.submitted]="formSubmitted"
+              formControlName="agreement">
+            <span matRipple class="checkmark"></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Signup Btn -->
+      <section class="col-12">
+        <button type="submit" mat-raised-button color="primary">Create Account</button>
+        <p>Already have an account? <u [routerLink]="['/auth/login']">Log in</u></p>
+      </section>
+
+    </form>
+  </div>
+</div>

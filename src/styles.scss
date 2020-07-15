@@ -1,4 +1,256 @@
-/* You can add global styles to this file, and also import other style files */
+/* Material Custom Theme */
+@import "./styles/theme";
+/* Import Google Fonts Lato: 300, 400, 700 */
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap");
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* SASS Styling imports */
+@import "./styles/variables";
+@import "./styles/responsive";
+@import "./styles/globals";
+@import "./styles/animations";
+@import "./styles/helpers";
+
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 768px;
+  min-height: 600px;
+  overflow: hidden;
+  overscroll-behavior-y: none;
+  font-family: "Lato", sans-serif;
+  background: var(--color-dark-grey);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+p {
+  font-weight: 400;
+}
+
+small {
+  font-weight: 300;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+section {
+  outline: none;
+}
+
+.default-card-shadow {
+  @include box-shadow();
+  transition: var(--transition);
+  &:hover {
+    @include box-shadow-hover();
+  }
+}
+
+.hover-shadow {
+  transition: var(--transition);
+  &:hover {
+    @include box-shadow();
+  }
+}
+
+.shadow-inner {
+  @include box-shadow-inset();
+}
+
+.shadow-top {
+  @include top-shadow();
+}
+
+/* Scrollbar Styling */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-dark-grey-600);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-grey-400);
+  border-radius: var(--border-radius);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dark-grey);
+  border-radius: var(--border-radius);
+}
+
+/* Forms & Inputs */
+.form-group {
+  position: relative;
+  .form-control {
+    position: relative;
+    display: block;
+    &.inline {
+      display: inline-block;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Simple Input */
+    input {
+      display: block;
+      width: 100%;
+      padding: 1rem 1rem;
+      font-size: 1.1rem;
+      color: var(--color-light);
+      background-clip: padding-box;
+      background-color: lighten(#1a1a1a, 3%);
+      border: 2px solid lighten(#1a1a1a, 15%);
+      border-radius: 0.25rem;
+      outline: none;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      @include box-shadow();
+
+      &::placeholder {
+        color: var(--color-light-grey);
+        opacity: 0.4;
+      }
+
+      &:focus {
+        border-color: var(--color-light-grey);
+        @include box-shadow-hover();
+      }
+    }
+
+    .icon {
+      position: absolute;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      color: var(--color-light-grey);
+      padding-left: 1rem;
+
+      & + input {
+        padding-left: 3rem;
+      }
+    }
+  }
+
+  /* Form Validations Start */
+  .ng-invalid:not(form).ng-touched.submitted {
+    border: 2px solid var(--color-danger-400);
+    border-radius: 0.25rem 0.25rem 0 0.25rem;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
+  .submitted + span.checkmark {
+    border-color: var(--color-danger-400);
+    transition: all 0.1s ease-in-out;
+  }
+
+  .form-error {
+    z-index: 1;
+    position: absolute;
+    right: var(--col-padding);
+    // left: var(--col-padding);
+    background: var(--color-danger-400);
+    color: var(--color-light-400);
+    margin-top: -2px;
+    padding: 5px 8px;
+    border-radius: 0 0 0.25rem 0.25rem;
+    text-align: right;
+    @include slide-error();
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  /* Form Validations Ends */
+}
+
+/* Toaster Container Classes Starts */
+.snackbar {
+  position: absolute;
+  top: 5.5rem;
+  margin: auto !important;
+  min-width: 200px;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+
+  &.info {
+    background: var(--color-light);
+    color: var(--color-dark-grey);
+  }
+
+  &.warning {
+    background: var(--color-danger-600);
+    color: var(--color-light-400);
+  }
+
+  &.success {
+    background: var(--color-success);
+    color: var(--color-light-400);
+  }
+}
+
+/* Toaster Container Classes Ends */
+
+/* Context Menu Classes Starts */
+.ngx-contextmenu {
+  .dropdown-menu {
+    border: solid 1px var(--color-dark-grey-400);
+    border-radius: 4px;
+    background-color: var(--color-dark-grey-400);
+    padding: 0.5rem 0;
+    width: 8rem;
+    overflow: hidden;
+
+    @include scale-up-ver-top();
+    @include menu-shadow();
+  }
+
+  a {
+    color: var(--color-light);
+    display: block;
+    padding: 0.7rem 1rem;
+
+    &:hover {
+      color: var(--color-light);
+      background-color: lighten(#262626, 4);
+    }
+  }
+}
+
+/* Context Menu Classes Ends */

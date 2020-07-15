@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "webpaddle-66dc0": {
+      "hosting": {
+        "Web-Paddle": [
+          "webpaddle-66dc0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "webpaddle-66dc0"
+  }
+}

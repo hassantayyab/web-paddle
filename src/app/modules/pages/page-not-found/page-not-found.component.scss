@@ -1,0 +1,36 @@
+#page-not-found {
+  background: var(--color-dark-grey);
+  color: var(--color-light);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > div {
+    display: block;
+    text-align: center;
+
+    img {
+      display: block;
+      margin-bottom: 3rem;
+    }
+
+    p {
+      &:first-child {
+        font-size: 24px;
+        margin-bottom: 0.5rem;
+      }
+
+      &:last-child {
+        font-size: 20px;
+        margin-bottom: 3rem;
+        color: var(--color-light-600);
+      }
+    }
+
+    button {
+      padding: 0.2rem 3rem;
+      text-transform: uppercase;
+    }
+  }
+}

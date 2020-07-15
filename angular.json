@@ -18,7 +18,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/test-app",
+            "outputPath": "dist/web-paddle",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "test-app:build"
+            "browserTarget": "web-paddle:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "test-app:build:production"
+              "browserTarget": "web-paddle:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "test-app:build"
+            "browserTarget": "web-paddle:build"
           }
         },
         "test": {
@@ -117,16 +117,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "test-app:serve"
+            "devServerTarget": "web-paddle:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "test-app:serve:production"
+              "devServerTarget": "web-paddle:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "test-app"
+  "defaultProject": "web-paddle"
 }

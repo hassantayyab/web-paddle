@@ -1,0 +1,22 @@
+#snackbar {
+  display: flex;
+  align-items: center;
+
+  section:first-child {
+    margin-right: 1rem;
+
+    span {
+      cursor: pointer;
+      font-size: 28px;
+    }
+  }
+
+  section:last-child {
+    margin-left: 1rem;
+
+    span {
+      cursor: pointer;
+      font-size: 28px;
+    }
+  }
+}

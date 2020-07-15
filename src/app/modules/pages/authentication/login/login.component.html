@@ -1,0 +1,74 @@
+<div id="login">
+  <div class="row slide-left">
+    <section class="col-12">
+      <h1>Sign in to WebPaddle</h1>
+    </section>
+
+    <!-- Social Logins -->
+    <section class="social-opts col-12">
+      <div class="col-6" matRipple (click)="auth$.signInGoogle()">
+        <div>
+          <img src="assets/images/google-logo.png" alt="">
+          <p>Login with Google</p>
+        </div>
+      </div>
+
+      <div class="col-6" matRipple (click)="auth$.signInFacebook()">
+        <div>
+          <img src="assets/images/facebook-logo.png" alt="">
+          <p>Login with Facebook</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separator -->
+    <section class="separator">
+      <h5>OR</h5>
+    </section>
+
+    <form class="row" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <!-- Email -->
+      <section class="col-12 form-group">
+        <div class="form-control">
+          <input type="email" id="email" [class.submitted]="formSubmitted || fpSubmitted" placeholder="Email"
+            formControlName="email">
+        </div>
+        <div class="form-error" [hidden]="!((formSubmitted || fpSubmitted) && loginForm.get('email').invalid)">
+          <p *ngIf="loginForm.get('email').errors?.required">Email is required</p>
+          <p *ngIf="loginForm.get('email').errors?.email">Email is invalid</p>
+        </div>
+      </section>
+
+      <!-- Password -->
+      <section class="col-12 form-group">
+        <div class="form-control">
+          <input matRipple type="password" id="password" [class.submitted]="formSubmitted" placeholder="Password"
+            formControlName="password">
+        </div>
+        <div class="form-error" [hidden]="!(formSubmitted && loginForm.get('password').invalid)">
+          <p *ngIf="loginForm.get('password').errors?.required">Password is required</p>
+        </div>
+      </section>
+
+      <!-- Remember Me & Forgot Password -->
+      <section class="rm-fg col-12 form-group">
+        <div class="form-control inline">
+          <label for="rememberMe" class="container">Remember me
+            <input type="checkbox" name="Remember me" id="rememberMe" formControlName="rememberMe"
+              (change)="auth$.onRemeberMe(loginForm.value)">
+            <span matRipple class="checkmark"></span>
+          </label>
+        </div>
+
+        <a (click)="onForgotPassword()">Forgot Password?</a>
+      </section>
+
+      <!-- Login Btn -->
+      <section class="col-12">
+        <button type="submit" mat-raised-button color="primary">Sign In</button>
+        <p>Don't have an account? <u [routerLink]="['/auth/register']">Sign up</u></p>
+      </section>
+
+    </form>
+  </div>
+</div>

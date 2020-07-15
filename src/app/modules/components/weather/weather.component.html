@@ -1,0 +1,29 @@
+<div id="weather" class="default-card-shadow">
+  <div *ngIf="weather">
+    <div class="media">
+      <span class="material-icons">wb_sunny</span>
+    </div>
+
+    <div class="content">
+      <div class="row-1">
+        <h5>{{ weather.temp }}<span>&#x2103;</span> in Lahore</h5>
+        <h5
+          [matTooltip]="windTooltip"
+          [matTooltipPosition]="_helpers.newsToolTipPosition"
+        >
+          <span class="material-icons">
+            toys
+          </span>
+          {{ weather.wind_speed }}<span>m/s</span>
+        </h5>
+      </div>
+
+      <div class="row-2">
+        <p>
+          {{ weather.weather[0].description }}
+        </p>
+        <p>{{ weather.humidity }}% humidity</p>
+      </div>
+    </div>
+  </div>
+</div>

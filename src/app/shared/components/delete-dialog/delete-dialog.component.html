@@ -1,0 +1,30 @@
+<div id="delete">
+  <section class="heading">
+    <h4>{{ data.title }}</h4>
+  </section>
+
+  <!-- Description -->
+  <section class="description">
+    <p>This will permanently delete this item from your collection.</p>
+  </section>
+
+  <!-- Action Btns -->
+  <section class="action-btns">
+    <button
+      type="button"
+      mat-stroked-button
+      color="danger"
+      (click)="onAction(false)"
+    >
+      Cancel
+    </button>
+    <button
+      type="button"
+      mat-raised-button
+      color="warning"
+      (click)="onAction(true)"
+    >
+      <i class="material-icons">delete_forever</i>Delete
+    </button>
+  </section>
+</div>
