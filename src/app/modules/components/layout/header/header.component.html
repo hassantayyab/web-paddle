@@ -1,1 +1,13 @@
-<p>header works!</p>
+<header id="header">
+  <div class="search-input">
+    <span class="material-icons">search</span>
+    <input type="text" placeholder="Search" id="">
+  </div>
+
+  <div class="user-greeting" matRipple (click)="auth$.signOut()">
+    <div class="img-placeholder">
+      <img [src]="user.photoURL" alt="profile_image">
+    </div>
+    <p *ngIf="user">Good Morning, {{user.displayName.split(' ')[0]}}</p>
+  </div>
+</header>

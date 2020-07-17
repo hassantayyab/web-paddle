@@ -1,0 +1,50 @@
+<div id="landing">
+
+
+  <header>
+    <ul>
+      <li>
+        <img src="assets/images/logo.png" alt="">
+      </li>
+      <li *ngFor="let item of menu.main">
+        <a href="javascript:void(0)" [routerLink]="item.link">{{item.title}}</a>
+      </li>
+    </ul>
+
+    <ul>
+      <li *ngFor="let item of menu.social">
+        <a href="javascript:void(0)" [routerLink]="item.link">
+          <fa-icon [icon]="item.icon"></fa-icon>
+        </a>
+      </li>
+
+      <li class="auth" *ngFor="let item of menu.auth">
+        <a href="javascript:void(0)" matRipple [class]="item.class" [routerLink]="item.link">
+          {{item.title}}
+        </a>
+      </li>
+    </ul>
+  </header>
+
+
+  <main>
+    <div>
+      <div>
+        <h1>One place to start your web surfing journey</h1>
+        <p>WebPaddle provides you with all your web surfing essentials at one place such as<br>bookmarks, music, radio
+          stations, news
+          and
+          much more.</p>
+      </div>
+
+      <img src="assets/images/landing-image.svg" alt="">
+
+      <div class="btn-group">
+        <button mat-raised-button>Download for Windows</button>
+        <button mat-raised-button color="primary">Download for Mobile</button>
+      </div>
+    </div>
+
+  </main>
+
+</div>

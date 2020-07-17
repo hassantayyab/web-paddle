@@ -1,0 +1,402 @@
+/* Zoom Mixins */
+@mixin zoom() {
+  /* .item-sect MQ */
+  $zoom: 100%;
+  $width: 1634px;
+
+  & {
+    zoom: $zoom;
+  }
+  @media screen and (max-width: 1844px) {
+    & {
+      zoom: $zoom + 20%;
+    }
+  }
+  @media screen and (max-width: 1834px) {
+    & {
+      zoom: $zoom + 19%;
+    }
+  }
+  @media screen and (max-width: 1824px) {
+    & {
+      zoom: $zoom + 18%;
+    }
+  }
+  @media screen and (max-width: 1814px) {
+    & {
+      zoom: $zoom + 17%;
+    }
+  }
+  @media screen and (max-width: 1804px) {
+    & {
+      zoom: $zoom + 16%;
+    }
+  }
+  @media screen and (max-width: 1794px) {
+    & {
+      zoom: $zoom + 15%;
+    }
+  }
+  @media screen and (max-width: 1784px) {
+    & {
+      zoom: $zoom + 14%;
+    }
+  }
+  @media screen and (max-width: 1774px) {
+    & {
+      zoom: $zoom + 13%;
+    }
+  }
+  @media screen and (max-width: 1764px) {
+    & {
+      zoom: $zoom + 12%;
+    }
+  }
+  @media screen and (max-width: 1754px) {
+    & {
+      zoom: $zoom + 11%;
+    }
+  }
+  @media screen and (max-width: 1744px) {
+    & {
+      zoom: $zoom + 10%;
+    }
+  }
+  @media screen and (max-width: 1734px) {
+    & {
+      zoom: $zoom + 9%;
+    }
+  }
+  @media screen and (max-width: 1724px) {
+    & {
+      zoom: $zoom + 8%;
+    }
+  }
+  @media screen and (max-width: 1714px) {
+    & {
+      zoom: $zoom + 7%;
+    }
+  }
+  @media screen and (max-width: 1704px) {
+    & {
+      zoom: $zoom + 6%;
+    }
+  }
+  @media screen and (max-width: 1694px) {
+    & {
+      zoom: $zoom + 5%;
+    }
+  }
+  @media screen and (max-width: 1684px) {
+    & {
+      zoom: $zoom + 4%;
+    }
+  }
+  @media screen and (max-width: 1674px) {
+    & {
+      zoom: $zoom + 3%;
+    }
+  }
+  @media screen and (max-width: 1664px) {
+    & {
+      zoom: $zoom + 2%;
+    }
+  }
+  @media screen and (max-width: 1654px) {
+    & {
+      zoom: $zoom + 1%;
+    }
+  }
+  @media screen and (max-width: 1644px) {
+    & {
+      zoom: $zoom;
+    }
+  }
+  @media screen and (max-width: 1634px) {
+    & {
+      zoom: $zoom - 1%;
+    }
+  }
+  @media screen and (max-width: 1624px) {
+    & {
+      zoom: $zoom - 2%;
+    }
+  }
+  @media screen and (max-width: 1614px) {
+    & {
+      zoom: $zoom - 3%;
+    }
+  }
+  @media screen and (max-width: 1604px) {
+    & {
+      zoom: $zoom - 4%;
+    }
+  }
+  @media screen and (max-width: 1594px) {
+    & {
+      zoom: $zoom - 5%;
+    }
+  }
+  @media screen and (max-width: 1584px) {
+    & {
+      zoom: $zoom - 6%;
+    }
+  }
+  @media screen and (max-width: 1574px) {
+    & {
+      zoom: $zoom - 7%;
+    }
+  }
+  @media screen and (max-width: 1564px) {
+    & {
+      zoom: $zoom - 8%;
+    }
+  }
+  @media screen and (max-width: 1554px) {
+    & {
+      zoom: $zoom - 9%;
+    }
+  }
+  @media screen and (max-width: 1544px) {
+    & {
+      zoom: $zoom - 10%;
+    }
+  }
+  @media screen and (max-width: 1534px) {
+    & {
+      zoom: $zoom - 11%;
+    }
+  }
+  @media screen and (max-width: 1524px) {
+    & {
+      zoom: $zoom - 12%;
+    }
+  }
+  @media screen and (max-width: 1514px) {
+    & {
+      zoom: $zoom - 13%;
+    }
+  }
+  @media screen and (max-width: 1504px) {
+    & {
+      zoom: $zoom - 14%;
+    }
+  }
+  @media screen and (max-width: 1494px) {
+    & {
+      zoom: $zoom - 15%;
+    }
+  }
+  @media screen and (max-width: 1484px) {
+    & {
+      zoom: $zoom - 16%;
+    }
+  }
+  @media screen and (max-width: 1474px) {
+    & {
+      zoom: $zoom - 17%;
+    }
+  }
+  @media screen and (max-width: 1464px) {
+    & {
+      zoom: $zoom - 18%;
+    }
+  }
+  @media screen and (max-width: 1454px) {
+    & {
+      zoom: $zoom - 19%;
+    }
+  }
+  @media screen and (max-width: 1444px) {
+    & {
+      zoom: $zoom - 20%;
+    }
+  }
+  @media screen and (max-width: 1434px) {
+    & {
+      zoom: $zoom - 21%;
+    }
+  }
+  @media screen and (max-width: 1424px) {
+    & {
+      zoom: $zoom - 22%;
+    }
+  }
+  @media screen and (max-width: 1414px) {
+    & {
+      zoom: $zoom - 23%;
+    }
+  }
+  @media screen and (max-width: 1404px) {
+    & {
+      zoom: $zoom - 24%;
+    }
+  }
+  @media screen and (max-width: 1394px) {
+    & {
+      zoom: $zoom - 25%;
+    }
+  }
+  @media screen and (max-width: 1384px) {
+    & {
+      zoom: $zoom - 26%;
+    }
+  }
+  @media screen and (max-width: 1374px) {
+    & {
+      zoom: $zoom - 27%;
+    }
+  }
+  @media screen and (max-width: 1364px) {
+    & {
+      zoom: $zoom - 28%;
+    }
+  }
+  @media screen and (max-width: 1354px) {
+    & {
+      zoom: $zoom - 29%;
+    }
+  }
+  @media screen and (max-width: 1344px) {
+    & {
+      zoom: $zoom - 30%;
+    }
+  }
+  @media screen and (max-width: 1334px) {
+    & {
+      zoom: $zoom - 31%;
+    }
+  }
+  @media screen and (max-width: 1324px) {
+    & {
+      zoom: $zoom - 32%;
+    }
+  }
+  @media screen and (max-width: 1314px) {
+    & {
+      zoom: $zoom - 33%;
+    }
+  }
+  @media screen and (max-width: 1304px) {
+    & {
+      zoom: $zoom - 34%;
+    }
+  }
+  @media screen and (max-width: 1294px) {
+    & {
+      zoom: $zoom - 35%;
+    }
+  }
+  @media screen and (max-width: 1284px) {
+    & {
+      zoom: $zoom - 36%;
+    }
+  }
+  @media screen and (max-width: 1274px) {
+    & {
+      zoom: $zoom - 37%;
+    }
+  }
+  @media screen and (max-width: 1264px) {
+    & {
+      zoom: $zoom - 38%;
+    }
+  }
+  @media screen and (max-width: 1254px) {
+    & {
+      zoom: $zoom - 39%;
+    }
+  }
+  @media screen and (max-width: 1244px) {
+    & {
+      zoom: $zoom - 40%;
+    }
+  }
+  @media screen and (max-width: 1234px) {
+    & {
+      zoom: $zoom - 41%;
+    }
+  }
+  @media screen and (max-width: 1224px) {
+    & {
+      zoom: $zoom - 42%;
+    }
+  }
+}
+
+/* .items-sect MQ */
+@mixin max-height {
+  & {
+    max-height: 10rem;
+  }
+  @media screen and (max-width: 1764px) {
+    & {
+      max-height: 9.2rem;
+    }
+  }
+  @media screen and (max-width: 1754px) {
+    & {
+      max-height: 9.1rem;
+    }
+  }
+  @media screen and (max-width: 1744px) {
+    & {
+      max-height: 9rem;
+    }
+  }
+  @media screen and (max-width: 1734px) {
+    & {
+      max-height: 8.9rem;
+    }
+  }
+  @media screen and (max-width: 1724px) {
+    & {
+      max-height: 8.8rem;
+    }
+  }
+  @media screen and (max-width: 1714px) {
+    & {
+      max-height: 8.7rem;
+    }
+  }
+  @media screen and (max-width: 1704px) {
+    & {
+      max-height: 8.6rem;
+    }
+  }
+  @media screen and (max-width: 1694px) {
+    & {
+      max-height: 8.5rem;
+    }
+  }
+  @media screen and (max-width: 1684px) {
+    & {
+      max-height: 8.4rem;
+    }
+  }
+  @media screen and (max-width: 1674px) {
+    & {
+      max-height: 8.3rem;
+    }
+  }
+  @media screen and (max-width: 1664px) {
+    & {
+      max-height: 8.2rem;
+    }
+  }
+  @media screen and (max-width: 1654px) {
+    & {
+      max-height: 8.1rem;
+    }
+  }
+  @media screen and (max-width: 1644px) {
+    & {
+      max-height: 8rem;
+    }
+  }
+  @media screen and (max-width: 1324px) {
+    & {
+      max-height: 5.5rem;
+    }
+  }
+}

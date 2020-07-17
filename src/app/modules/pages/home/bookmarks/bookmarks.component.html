@@ -1,0 +1,60 @@
+<div id="bookmarks" (scroll)="scrollHandler($event)">
+  <section>
+    <header>
+      <h2>Bookmarks</h2>
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        (click)="_bookmarks.onAddBookmark()"
+      >
+        <i class="material-icons">add</i> Add Bookmark
+      </button>
+    </header>
+
+    <main>
+      <section class="items-sect" *ngIf="bookmarks$ | async as bookmarks">
+        <div
+          class="item default-card-shadow"
+          matRipple
+          *ngFor="let bookmark of bookmarks"
+          [matTooltip]="bookmark.title"
+          [matTooltipPosition]="_helpers.bookmarksToolTipPosition"
+          (click)="_helpers.openLinkInNewTab(bookmark.url)"
+          [contextMenu]="basicMenu"
+          [contextMenuSubject]="bookmark"
+        >
+          <img
+            *ngIf="bookmark.thumbnail"
+            [src]="bookmark.thumbnail"
+            alt="thumnbnail"
+          />
+          <h3 class="text-sl" *ngIf="!bookmark.thumbnail">
+            {{ bookmark.title }}
+          </h3>
+        </div>
+        <context-menu>
+          <ng-template
+            contextMenuItem
+            matRipple
+            let-item
+            (execute)="onTakeAction('edit', $event.item)"
+          >
+            Edit
+          </ng-template>
+          <ng-template
+            contextMenuItem
+            let-item
+            matRipple
+            (execute)="onTakeAction('delete', $event.item)"
+          >
+            Delete
+          </ng-template>
+        </context-menu>
+      </section>
+    </main>
+
+    <!-- Fab Button -->
+    <!-- <button mat-flat-button class="fab-button" color="primary"><i class="material-icons">add</i></button> -->
+  </section>
+</div>

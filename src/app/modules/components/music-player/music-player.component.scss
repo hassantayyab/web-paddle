@@ -1,0 +1,112 @@
+#music-player {
+  $color-dark-grey: var(--color-dark-grey-600); // #0d0d0d
+  background: rgba(#0d0d0d, 0.95);
+  color: var(--color-light);
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+
+  button {
+    line-height: 0;
+    background: none;
+    border: none;
+    padding: 0.3rem;
+    color: var(--color-light-600);
+    cursor: pointer;
+
+    &.main {
+      border-radius: 50%;
+      border: 1px solid var(--color-light-600);
+    }
+
+    &:hover {
+      color: var(--color-light);
+      &.main {
+        border: 1px solid var(--color-light);
+      }
+    }
+  }
+
+  .song-sect {
+    width: 30%;
+    display: flex;
+    align-items: center;
+
+    .media {
+      margin-right: 0.85rem;
+      img {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem 0rem;
+
+      p {
+        font-size: 14px;
+        color: var(--color-light-grey);
+        margin-top: 0.4rem;
+      }
+    }
+  }
+
+  .controls-sect {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem 0rem;
+
+    .controls {
+      display: flex;
+      width: 60%;
+      justify-content: space-evenly;
+      margin-bottom: 0.6rem;
+    }
+
+    .progress {
+      height: 4px;
+      border-radius: var(--border-radius);
+      width: 100%;
+      background: var(--color-dark-grey);
+      cursor: pointer;
+
+      .completed {
+        width: 70%;
+        height: 100%;
+        border-radius: var(--border-radius);
+        background: var(--color-primary);
+        z-index: 2;
+      }
+    }
+  }
+
+  .volume-sect {
+    width: 30%;
+    padding: 1rem 1rem 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .progress {
+      height: 4px;
+      border-radius: var(--border-radius);
+      width: 7rem;
+      background: var(--color-dark-grey);
+      cursor: pointer;
+
+      .completed {
+        width: 70%;
+        height: 100%;
+        border-radius: var(--border-radius);
+        background: var(--color-primary);
+        z-index: 2;
+      }
+    }
+  }
+}

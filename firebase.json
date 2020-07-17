@@ -1,0 +1,16 @@
+{
+  "hosting": [
+    {
+      "site": "web-paddle",
+      "target": "Web-Paddle",
+      "public": "dist/Web-Paddle",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

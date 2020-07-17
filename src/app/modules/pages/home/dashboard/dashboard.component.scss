@@ -1,0 +1,71 @@
+@import "../../../../../styles/dashboard";
+
+#dashboard {
+  color: var(--color-light);
+  min-height: var(--min-height);
+  padding: var(--main-padding-y) var(--main-padding-x);
+
+  section {
+    margin-top: 4rem;
+
+    .title-sect {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.5rem;
+
+      p {
+        color: var(--color-light-grey);
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        margin-right: 1.5rem;
+
+        &:hover {
+          // --color-light-grey: #737373;
+          color: lighten(#737373, 10%);
+        }
+      }
+    }
+
+    &.bookmarks {
+      margin-top: 7rem;
+    }
+
+    &:last-child {
+      margin-bottom: 6rem;
+    }
+
+    .items-sect {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      flex-wrap: wrap;
+      @include max-height();
+
+      .item {
+        width: 11rem;
+        height: 8rem;
+        cursor: pointer;
+        border-radius: var(--border-radius);
+        margin-bottom: 4rem;
+        @include zoom();
+
+        &:first-child {
+          margin-right: 0.95rem;
+        }
+
+        &:not(:first-child) {
+          margin-left: 0.85rem;
+          margin-right: 0.85rem;
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          border-radius: var(--border-radius);
+          object-fit: fill;
+        }
+      }
+    }
+  }
+}

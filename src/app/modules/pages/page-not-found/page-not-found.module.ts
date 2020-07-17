@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { PageNotFoundRoutingModule } from './page-not-found-routing.module';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
   declarations: [PageNotFoundComponent],
   imports: [
     CommonModule,
+    MatButtonModule,
     PageNotFoundRoutingModule
   ]
 })

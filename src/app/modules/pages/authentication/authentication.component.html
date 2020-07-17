@@ -1,1 +1,30 @@
-<p>authentication works!</p>
+<div id="authentication">
+  <header>
+    <ul>
+      <li>
+        <img src="assets/images/logo.png" alt="WebPaddle" [routerLink]="['/']">
+      </li>
+      <li *ngFor="let item of menu.main">
+        <a href="javascript:void(0)" [routerLink]="item.link">{{item.title}}</a>
+      </li>
+    </ul>
+
+    <ul>
+      <li *ngFor="let item of menu.social">
+        <a href="javascript:void(0)" [routerLink]="item.link">
+          <fa-icon [icon]="item.icon"></fa-icon>
+        </a>
+      </li>
+
+      <li class="auth" *ngFor="let item of menu.auth">
+        <a href="javascript:void(0)" matRipple [class]="item.class" [routerLink]="item.link">
+          {{item.title}}
+        </a>
+      </li>
+    </ul>
+  </header>
+
+  <main>
+    <router-outlet id="auth"></router-outlet>
+  </main>
+</div>
