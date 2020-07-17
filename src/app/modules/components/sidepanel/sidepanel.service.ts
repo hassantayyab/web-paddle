@@ -13,10 +13,8 @@ export class SidepanelService {
     return this.http.get('https://newsapi.org/v2/top-headlines', { params })
       .pipe(
         map((data: any) => {
-          data.articles
-          return data.articles.filter((e: any) => e.title && e.url)
-        }),
-        tap(data => console.log(data)),
-      )
+          return data.articles.filter((e: any) => e.title && e.url);
+        })
+      );
   }
 }

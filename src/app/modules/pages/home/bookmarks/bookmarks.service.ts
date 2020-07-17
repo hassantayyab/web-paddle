@@ -1,18 +1,18 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
-} from "@angular/fire/firestore";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+} from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import {
   MatDialog,
   MatDialogRef,
   MAT_DIALOG_DATA,
-} from "@angular/material/dialog";
-import { AddBookmarkComponent } from "./add-bookmark/add-bookmark.component";
-import { UserData } from "../../authentication/authentication.interface";
+} from '@angular/material/dialog';
+import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
+import { UserData } from '../../authentication/authentication.interface';
 
 export interface Bookmark {
   id?: string;
@@ -25,7 +25,7 @@ export interface Bookmark {
 }
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class BookmarksService {
   private bookmarksCollection: AngularFirestoreCollection<Bookmark>;
@@ -40,7 +40,7 @@ export class BookmarksService {
   }
 
   initBookmarks() {
-    const userID = (JSON.parse(localStorage.getItem("user")) as UserData).uid;
+    const userID = (JSON.parse(localStorage.getItem('user')) as UserData).uid;
     this.bookmarksCollection = this.afs.collection<Bookmark>(
       `users/${userID}/bookmarks`
     );
@@ -76,31 +76,31 @@ export class BookmarksService {
 
   onAddBookmark() {
     const dialogRef = this.dialog.open(AddBookmarkComponent, {
-      width: "40vw",
+      width: '40vw',
       data: {
-        title: "Add Bookmark",
+        title: 'Add Bookmark',
         bookmark: null,
       },
-      panelClass: "matPrimaryDialogClass",
+      panelClass: 'matPrimaryDialogClass',
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log("The dialog was closed =", result);
+      console.log('The dialog was closed =', result);
     });
   }
 
   onEditBookmark(bookmark: Bookmark) {
     const dialogRef = this.dialog.open(AddBookmarkComponent, {
-      width: "40vw",
+      width: '40vw',
       data: {
-        title: "Update Bookmark",
+        title: 'Update Bookmark',
         bookmark,
       },
-      panelClass: "matPrimaryDialogClass",
+      panelClass: 'matPrimaryDialogClass',
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log("The dialog was closed =", result);
+      console.log('The dialog was closed =', result);
     });
   }
 }
