@@ -1,16 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
 import { UserData } from '../../authentication/authentication.interface';
 
@@ -32,7 +27,6 @@ export class BookmarksService {
   bookmarks: Observable<Bookmark[]>;
 
   constructor(
-    private http: HttpClient,
     private afs: AngularFirestore,
     public dialog: MatDialog
   ) {

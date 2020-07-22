@@ -1,0 +1,84 @@
+<div id="add_music">
+  <section>
+    <div class="row">
+      <h3 class="col-12">{{ data.title }}</h3>
+    </div>
+
+    <form class="row" [formGroup]="addMusicForm" (ngSubmit)="onChooseAction()">
+      <!-- Title -->
+      <section class="col-12 form-group">
+        <div class="form-control">
+          <i class="material-icons icon">
+            title
+          </i>
+          <input type="text" id="title" [class.submitted]="
+              formSubmitted && addMusicForm.get('title').invalid
+            " placeholder="Title" formControlName="title" [maxlength]="_constants.maxLength" />
+        </div>
+        <div class="form-error" [hidden]="!(formSubmitted && addMusicForm.get('title').invalid)">
+          <p *ngIf="addMusicForm.get('title').errors?.required">
+            Title is required
+          </p>
+        </div>
+      </section>
+
+      <!-- URL -->
+      <section class="col-12 form-group">
+        <div class="form-control">
+          <i class="material-icons icon">
+            link
+          </i>
+          <input type="text" id="url" [class.submitted]="
+              formSubmitted && addMusicForm.get('url').invalid
+            " placeholder="Music URL (e.g. https://www.google.com)" formControlName="url" />
+        </div>
+        <div class="form-error" [hidden]="!(formSubmitted && addMusicForm.get('url').invalid)">
+          <p *ngIf="addMusicForm.get('url').errors?.required">
+            Website URL is required
+          </p>
+          <p *ngIf="
+              addMusicForm.get('url').errors?.invalid &&
+              !addMusicForm.get('url').errors?.required
+            ">
+            Website URL is invalid
+          </p>
+        </div>
+      </section>
+
+      <!-- Thumbnail -->
+      <section class="col-12 form-group">
+        <div class="form-control">
+          <i class="material-icons icon">
+            insert_photo
+          </i>
+          <input type="text" id="thumbnail" [class.submitted]="
+              formSubmitted && addMusicForm.get('thumbnail').invalid
+            " placeholder="Album Artwork URL (e.g. https://www.google.com)" formControlName="thumbnail" />
+        </div>
+        <div class="form-error" [hidden]="
+            !(formSubmitted && addMusicForm.get('thumbnail').invalid)
+          ">
+          <p *ngIf="addMusicForm.get('thumbnail').errors?.required">
+            Thumbnail URL is required
+          </p>
+          <p *ngIf="
+              addMusicForm.get('thumbnail').errors?.invalid &&
+              !addMusicForm.get('thumbnail').errors?.required
+            ">
+            Thumbnail URL is invalid
+          </p>
+        </div>
+      </section>
+
+      <!-- Action Btns -->
+      <section class="col-12">
+        <button type="submit" mat-raised-button color="primary">
+          <i class="material-icons">add</i> {{ music ? "Update" : "Add" }}
+        </button>
+        <button type="button" mat-stroked-button color="primary" (click)="dialogRef.close()">
+          Cancel
+        </button>
+      </section>
+    </form>
+  </section>
+</div>

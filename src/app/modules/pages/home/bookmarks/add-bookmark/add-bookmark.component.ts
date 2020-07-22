@@ -3,8 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   FormGroup,
   FormBuilder,
-  Validators,
-  AbstractControl,
+  Validators
 } from '@angular/forms';
 import { Bookmark, BookmarksService } from '../bookmarks.service';
 import * as firebase from 'firebase';

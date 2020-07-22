@@ -22,6 +22,7 @@ small {
 
 .matPrimaryDialogClass {
   .mat-dialog-container {
+    box-shadow: none;
     background-color: var(--color-dark-grey);
     border-radius: var(--border-radius);
     padding: 3rem;
@@ -30,6 +31,7 @@ small {
 
 .matDeleteDialogClass {
   .mat-dialog-container {
+    box-shadow: none;
     background-color: var(--color-dark-grey);
     border-radius: var(--border-radius);
     padding: 2.5rem;
