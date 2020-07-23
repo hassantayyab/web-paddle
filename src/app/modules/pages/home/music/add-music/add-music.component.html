@@ -28,9 +28,9 @@
           <i class="material-icons icon">
             link
           </i>
-          <input type="text" id="url" [class.submitted]="
+          <input type="file" accept="audio/*" id="url" [class.submitted]="
               formSubmitted && addMusicForm.get('url').invalid
-            " placeholder="Music URL (e.g. https://www.google.com)" formControlName="url" />
+            " placeholder="Music URL (e.g. https://www.google.com)" formControlName="url" (change)="onFileSelect($event)" />
         </div>
         <div class="form-error" [hidden]="!(formSubmitted && addMusicForm.get('url').invalid)">
           <p *ngIf="addMusicForm.get('url').errors?.required">

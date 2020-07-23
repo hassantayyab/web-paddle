@@ -18,6 +18,7 @@ export class AddMusicComponent implements OnInit {
   formSubmitted: boolean;
 
   music: Music;
+  selectedFile: File;
 
   constructor(
     public dialogRef: MatDialogRef<AddMusicComponent>,
@@ -42,6 +43,13 @@ export class AddMusicComponent implements OnInit {
       ],
       thumbnail: [this.music ? this.music.thumbnail : '', [ValidateURL]],
     });
+  }
+
+  async onFileSelect(event) {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+    const file = await this._music.convertFileToBase64(this.selectedFile);
+    console.log(file);
   }
 
   onChooseAction() {

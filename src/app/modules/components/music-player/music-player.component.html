@@ -21,16 +21,16 @@
           skip_previous
         </span>
       </button>
-      <button type="button" class="main">
+      <button *ngIf="isMusicPlaying" type="button" class="main" (click)="onMusicPause()">
         <span class="material-icons">
           pause
         </span>
       </button>
-      <!-- <button type="button">
+      <button *ngIf="!isMusicPlaying" type="button" (click)="onMusicPlay()">
         <span class="material-icons">
           play_arrow
         </span>
-      </button> -->
+      </button>
       <button type="button">
         <span class="material-icons">
           skip_next
